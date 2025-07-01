@@ -9,7 +9,7 @@ import {
   Heart,
   Briefcase,
   Banknote,
-  Lotus,
+  HandHeart,
   ThumbsUp,
   CalendarClock,
   Hourglass,
@@ -46,7 +46,7 @@ const services: Service[] = [
     descriptionKey: 'services.finance.description',
   },
   {
-    icon: Lotus,
+    icon: HandHeart,
     titleKey: 'services.spiritual.title',
     descriptionKey: 'services.spiritual.description',
   },
