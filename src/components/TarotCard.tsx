@@ -13,7 +13,7 @@ interface TarotCardProps {
 
 export function TarotCard({ card, isFlipped, className }: TarotCardProps) {
   return (
-    <div className={cn('group h-[350px] w-[200px] [perspective:1000px]', className)}>
+    <div className={cn('group w-[160px] h-[280px] md:w-[200px] md:h-[350px] [perspective:1000px]', className)}>
       <div
         className={cn(
           'relative h-full w-full transition-transform duration-700 [transform-style:preserve-3d]',

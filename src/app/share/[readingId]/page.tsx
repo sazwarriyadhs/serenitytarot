@@ -54,7 +54,7 @@ export default function ShareReadingPage({ params }: { params: { readingId: stri
           </CardHeader>
           <CardContent className="flex flex-col items-center gap-8 px-4 md:px-8 pb-8">
             <p className="text-muted-foreground text-center">Your cards: Past, Present, and Future</p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-8">
+            <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 md:gap-8">
               {drawnCards.map((card, index) => (
                 <TarotCard key={index} card={card} isFlipped={true} />
               ))}
