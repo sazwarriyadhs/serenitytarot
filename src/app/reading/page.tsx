@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { PageHeader } from '@/components/PageHeader';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -9,7 +10,7 @@ import { customers, tarotDeck } from '@/lib/data';
 import type { Customer, TarotCard as TarotCardType } from '@/lib/types';
 import { TarotCard } from '@/components/TarotCard';
 import { interpretTarotReading } from '@/ai/flows/interpret-tarot-reading';
-import { WandSparkles, Sparkles, Loader2 } from 'lucide-react';
+import { WandSparkles, Sparkles, Loader2, Share2 } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast"
 
 export default function ReadingPage() {
@@ -19,10 +20,12 @@ export default function ReadingPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [interpretation, setInterpretation] = useState<string | null>(null);
   const { toast } = useToast();
+  const [readingId, setReadingId] = useState<string | null>(null);
 
   const handleDrawCards = () => {
     setAreCardsFlipped(false);
     setInterpretation(null);
+    setReadingId(null);
 
     // Animate the card dealing
     setTimeout(() => {
@@ -45,6 +48,7 @@ export default function ReadingPage() {
 
     setIsLoading(true);
     setInterpretation(null);
+    setReadingId(null);
 
     const customer = customers.find(c => c.id === selectedCustomerId);
     const bookingHistory = customer?.bookings.map(b => `${b.date} - ${b.readingType}: ${b.notes}`).join('\n') || 'No previous bookings.';
@@ -56,6 +60,8 @@ export default function ReadingPage() {
         bookingHistory: bookingHistory,
       });
       setInterpretation(result.interpretation);
+      // In a real app, this ID would come from saving the reading to a database.
+      setReadingId(Date.now().toString()); 
     } catch (error) {
       console.error('Error getting interpretation:', error);
       toast({
@@ -83,7 +89,7 @@ export default function ReadingPage() {
               <CardTitle className="font-headline">1. Select Client</CardTitle>
             </CardHeader>
             <CardContent>
-              <Select onValueChange={setSelectedCustomerId} value={selectedCustomerId ?? undefined}>
+              <Select onValueChange={(value) => { setSelectedCustomerId(value); setInterpretation(null); setReadingId(null); setDrawnCards([null, null, null]); setAreCardsFlipped(false); }} value={selectedCustomerId ?? undefined}>
                 <SelectTrigger>
                   <SelectValue placeholder="Choose a client..." />
                 </SelectTrigger>
@@ -100,7 +106,7 @@ export default function ReadingPage() {
               <CardTitle className="font-headline">2. Draw Cards</CardTitle>
             </CardHeader>
             <CardContent>
-              <Button onClick={handleDrawCards} className="w-full">
+              <Button onClick={handleDrawCards} className="w-full" disabled={!selectedCustomerId}>
                 <WandSparkles className="mr-2 h-4 w-4" /> Draw Three Cards
               </Button>
             </CardContent>
@@ -141,11 +147,22 @@ export default function ReadingPage() {
                     </div>
                 )}
                 {interpretation && (
-                    <div className="prose dark:prose-invert max-w-none text-foreground text-base leading-relaxed">
-                        {interpretation.split('\n').map((paragraph, index) => (
-                            <p key={index}>{paragraph}</p>
-                        ))}
-                    </div>
+                    <>
+                        <div className="max-w-none text-foreground/90 text-base leading-relaxed space-y-4">
+                            {interpretation.split('\n\n').map((paragraph, index) => (
+                                <p key={index}>{paragraph}</p>
+                            ))}
+                        </div>
+                        {readingId && (
+                             <div className="flex justify-end mt-6">
+                                <Button asChild>
+                                    <Link href={`/share/${readingId}`} target="_blank" rel="noopener noreferrer">
+                                        <Share2 className="mr-2 h-4 w-4" /> Share Reading
+                                    </Link>
+                                </Button>
+                            </div>
+                        )}
+                    </>
                 )}
             </CardContent>
         </Card>
