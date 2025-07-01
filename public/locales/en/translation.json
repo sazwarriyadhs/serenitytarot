@@ -1,15 +1,14 @@
-
 {
   "mysticAgenda": "Mystic Agenda",
   "dashboard": {
     "title": "Dashboard",
-    "welcome": "Welcome back!",
-    "description": "Here's a quick overview of your business.",
+    "welcome": "Welcome Back!",
+    "description": "Here's a summary of your tarot reading business.",
     "scheduleAppointment": "Schedule Appointment",
     "totalRevenue": "Total Revenue",
     "totalClients": "Total Clients",
-    "appointmentsThisMonth": "Appointments this Month",
-    "newClientsMonth": "New Clients this Month",
+    "appointmentsThisMonth": "Appointments This Month",
+    "newClientsMonth": "New Clients This Month",
     "upcomingAppointments": "Upcoming Appointments",
     "customer": "Customer",
     "date": "Date",
@@ -24,6 +23,53 @@
   "aiReading": {
     "title": "AI Reading"
   },
+  "reading": {
+    "getInterpretation": "Get AI Interpretation"
+  },
+  "services": {
+    "title": "Services",
+    "pageDescription": "Explore the range of tarot readings we offer.",
+    "general": {
+      "title": "General Reading",
+      "description": "A broad overview of your current energy. Perfect for clients without a specific question."
+    },
+    "love": {
+      "title": "Love & Relationship Reading",
+      "description": "Focuses on romantic relationships (partners, exes, prospects). Explores love energy, loyalty, and the future of the connection."
+    },
+    "career": {
+      "title": "Career & Business Reading",
+      "description": "Provides direction on career paths, job choices, and business opportunities. Ideal for those considering resignations, interviews, or promotions."
+    },
+    "finance": {
+      "title": "Finance Reading",
+      "description": "Examines financial energy, opportunities for prosperity, expenses, and investments. Can be combined with actionable advice."
+    },
+    "spiritual": {
+      "title": "Spiritual & Healing Reading",
+      "description": "Reads auras, karma, past lives, and inner energy. Suitable for those needing self-reflection or emotional healing."
+    },
+    "yesNo": {
+      "title": "Yes or No Reading",
+      "description": "A direct answer to one specific question. Quick and simple, perfect for express services."
+    },
+    "timeBased": {
+      "title": "Time-based Reading",
+      "description": "Provides a forecast for a specific period, such as weekly, monthly, or yearly energy."
+    },
+    "ppf": {
+      "title": "Past-Present-Future Reading",
+      "description": "Highlights past influences, current situations, and future predictions."
+    },
+    "soulmate": {
+      "title": "Soulmate / Twin Flame Reading",
+      "description": "Explores soul connections, spiritual relationships, and destined partners."
+    },
+    "chakra": {
+      "title": "Chakra or Energy Reading",
+      "description": "Assesses the balance of the body's energy centers or chakras."
+    }
+  },
   "logout": "Logout",
   "settings": {
     "title": "Settings",
@@ -31,49 +77,5 @@
     "english": "English",
     "indonesian": "Indonesian",
     "currency": "Currency"
-  },
-  "services": {
-    "title": "Services",
-    "pageDescription": "Explore the variety of tarot readings available for your clients.",
-    "general": {
-      "title": "General Reading",
-      "description": "A big picture overview of the current energy. Suitable for clients who don't have a specific question."
-    },
-    "love": {
-      "title": "Love & Relationship Reading",
-      "description": "Romantic relationships (partner, ex, potential). Love energy, loyalty, future of the relationship. Suitable for those in courtship, LDR, or conflict."
-    },
-    "career": {
-      "title": "Career & Business Reading",
-      "description": "Career direction, job choices, business opportunities. Suitable for those contemplating resignation, interviews, or promotions."
-    },
-    "finance": {
-      "title": "Finance Reading",
-      "description": "Financial energy, fortune opportunities, expenses, investments. Can be combined with actionable advice."
-    },
-    "spiritual": {
-      "title": "Spiritual & Healing Reading",
-      "description": "Aura, karma, past life, and inner energy readings. Suitable for those needing self-reflection or emotional healing."
-    },
-    "yesNo": {
-      "title": "Yes or No Reading",
-      "description": "A direct answer to one specific question. Quick and simple, perfect for an express service."
-    },
-    "timeBased": {
-      "title": "Time-based Reading",
-      "description": "Weekly, monthly, or yearly energy forecast. A prediction for a specific period."
-    },
-    "ppf": {
-      "title": "Past-Present-Future Reading",
-      "description": "Highlights the past, current situation, and future predictions."
-    },
-    "soulmate": {
-      "title": "Soulmate / Twin Flame Reading",
-      "description": "Soul connections, spiritual relationships, destined partners."
-    },
-    "chakra": {
-      "title": "Chakra or Energy Reading",
-      "description": "Assesses the balance of the body's energy centers or chakras."
-    }
   }
 }

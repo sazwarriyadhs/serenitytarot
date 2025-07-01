@@ -1,10 +1,9 @@
-
 {
   "mysticAgenda": "Mystic Agenda",
   "dashboard": {
     "title": "Dasbor",
-    "welcome": "Selamat datang kembali!",
-    "description": "Berikut adalah ringkasan singkat bisnis Anda.",
+    "welcome": "Selamat Datang Kembali!",
+    "description": "Berikut adalah ringkasan bisnis pembacaan tarot Anda.",
     "scheduleAppointment": "Jadwalkan Janji Temu",
     "totalRevenue": "Total Pendapatan",
     "totalClients": "Total Klien",
@@ -24,24 +23,19 @@
   "aiReading": {
     "title": "Pembacaan AI"
   },
-  "logout": "Keluar",
-  "settings": {
-    "title": "Pengaturan",
-    "language": "Bahasa",
-    "english": "Inggris",
-    "indonesian": "Indonesia",
-    "currency": "Mata Uang"
+  "reading": {
+    "getInterpretation": "Dapatkan Interpretasi AI"
   },
   "services": {
     "title": "Layanan",
-    "pageDescription": "Jelajahi berbagai jenis pembacaan tarot yang tersedia untuk klien Anda.",
+    "pageDescription": "Jelajahi berbagai layanan pembacaan tarot yang kami tawarkan.",
     "general": {
       "title": "Pembacaan Umum",
       "description": "Gambaran besar tentang energi saat ini. Cocok untuk klien yang tidak punya pertanyaan spesifik."
     },
     "love": {
-      "title": "Pembacaan Cinta & Hubungan",
-      "description": "Hubungan asmara (pasangan, mantan, calon). Energi cinta, kesetiaan, masa depan hubungan. Cocok untuk yang sedang PDKT, LDR, atau konflik."
+      "title": "Pembacaan Asmara & Hubungan",
+      "description": "Fokus pada hubungan asmara (pasangan, mantan, calon). Energi cinta, kesetiaan, masa depan hubungan."
     },
     "career": {
       "title": "Pembacaan Karier & Bisnis",
@@ -64,16 +58,24 @@
       "description": "Energi mingguan, bulanan, atau tahunan. Forecast atau prediksi waktu tertentu."
     },
     "ppf": {
-      "title": "Pembacaan Masa Lalu-Kini-Nanti",
+      "title": "Pembacaan Masa Lalu-Sekarang-Masa Depan",
       "description": "Menyorot masa lalu, kondisi saat ini, dan prediksi masa depan."
     },
     "soulmate": {
-      "title": "Pembacaan Soulmate / Twin Flame",
+      "title": "Pembacaan Belahan Jiwa / Twin Flame",
       "description": "Koneksi jiwa, hubungan spiritual, pasangan takdir."
     },
     "chakra": {
       "title": "Pembacaan Cakra atau Energi",
       "description": "Menilai keseimbangan energi atau cakra tubuh."
     }
+  },
+  "logout": "Keluar",
+  "settings": {
+    "title": "Pengaturan",
+    "language": "Bahasa",
+    "english": "Inggris",
+    "indonesian": "Indonesia",
+    "currency": "Mata Uang"
   }
 }

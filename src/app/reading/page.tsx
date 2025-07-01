@@ -11,9 +11,11 @@ import type { Customer, TarotCard as TarotCardType } from '@/lib/types';
 import { TarotCard } from '@/components/TarotCard';
 import { interpretTarotReading } from '@/ai/flows/interpret-tarot-reading';
 import { WandSparkles, Sparkles, Loader2, Share2 } from 'lucide-react';
-import { useToast } from "@/hooks/use-toast"
+import { useToast } from "@/hooks/use-toast";
+import { useTranslation } from 'react-i18next';
 
 export default function ReadingPage() {
+  const { t } = useTranslation();
   const [selectedCustomerId, setSelectedCustomerId] = useState<string | null>(null);
   const [drawnCards, setDrawnCards] = useState<(TarotCardType | null)[]>([null, null, null]);
   const [areCardsFlipped, setAreCardsFlipped] = useState(false);
@@ -120,14 +122,14 @@ export default function ReadingPage() {
                 </CardHeader>
                 <CardContent className="flex flex-col items-center justify-center gap-4">
                     <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8">
-                        <TarotCard card={drawnCards[0]} isFlipped={areCardsFlipped} />
-                        <TarotCard card={drawnCards[1]} isFlipped={areCardsFlipped} />
-                        <TarotCard card={drawnCards[2]} isFlipped={areCardsFlipped} />
+                        <TarotCard card={drawnCards[0]} isFlipped={areCardsFlipped} className="w-[120px] h-[210px] md:w-[200px] md:h-[350px]" />
+                        <TarotCard card={drawnCards[1]} isFlipped={areCardsFlipped} className="w-[120px] h-[210px] md:w-[200px] md:h-[350px]" />
+                        <TarotCard card={drawnCards[2]} isFlipped={areCardsFlipped} className="w-[120px] h-[210px] md:w-[200px] md:h-[350px]" />
                     </div>
                     {areCardsFlipped && (
                         <Button onClick={handleGetInterpretation} disabled={isLoading || !selectedCustomerId} size="lg" className="mt-4">
                             {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Sparkles className="mr-2 h-4 w-4" />}
-                            Get AI Interpretation
+                            {t('reading.getInterpretation')}
                         </Button>
                     )}
                 </CardContent>
