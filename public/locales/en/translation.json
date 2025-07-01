@@ -1,9 +1,10 @@
 {
   "mysticAgenda": "Mystic Agenda",
+  "logout": "Logout",
   "dashboard": {
     "title": "Dashboard",
-    "welcome": "Welcome Back!",
-    "description": "Here's a summary of your tarot reading business.",
+    "welcome": "Welcome back, Mystic!",
+    "description": "Here's what's happening today.",
     "scheduleAppointment": "Schedule Appointment",
     "totalRevenue": "Total Revenue",
     "totalClients": "Total Clients",
@@ -23,43 +24,40 @@
   "aiReading": {
     "title": "AI Reading"
   },
-  "reading": {
-    "getInterpretation": "Get AI Interpretation"
-  },
   "services": {
     "title": "Services",
     "pageDescription": "Explore the range of tarot readings we offer.",
     "general": {
       "title": "General Reading",
-      "description": "A broad overview of your current energy. Perfect for clients without a specific question."
+      "description": "A broad overview of your current energy. Perfect for when you don't have a specific question."
     },
     "love": {
       "title": "Love & Relationship Reading",
-      "description": "Focuses on romantic relationships (partners, exes, prospects). Explores love energy, loyalty, and the future of the connection."
+      "description": "Focuses on romantic relationships (partner, ex, potential). Explores energies, loyalty, and future prospects."
     },
     "career": {
       "title": "Career & Business Reading",
-      "description": "Provides direction on career paths, job choices, and business opportunities. Ideal for those considering resignations, interviews, or promotions."
+      "description": "Guidance on career direction, job choices, and business opportunities. Ideal for career transitions."
     },
     "finance": {
       "title": "Finance Reading",
-      "description": "Examines financial energy, opportunities for prosperity, expenses, and investments. Can be combined with actionable advice."
+      "description": "Insights into your financial energy, opportunities, expenses, and investments. Can include actionable advice."
     },
     "spiritual": {
       "title": "Spiritual & Healing Reading",
-      "description": "Reads auras, karma, past lives, and inner energy. Suitable for those needing self-reflection or emotional healing."
+      "description": "Examines your aura, karma, past lives, and inner energy. For self-reflection and emotional healing."
     },
     "yesNo": {
       "title": "Yes or No Reading",
-      "description": "A direct answer to one specific question. Quick and simple, perfect for express services."
+      "description": "A straightforward answer to a single, specific question. Quick, simple, and perfect for express services."
     },
     "timeBased": {
       "title": "Time-based Reading",
-      "description": "Provides a forecast for a specific period, such as weekly, monthly, or yearly energy."
+      "description": "Energy forecast for the week, month, or year. See what's ahead for a specific period."
     },
     "ppf": {
       "title": "Past-Present-Future Reading",
-      "description": "Highlights past influences, current situations, and future predictions."
+      "description": "Highlights influences from your past, your current situation, and a forecast of what's to come."
     },
     "soulmate": {
       "title": "Soulmate / Twin Flame Reading",
@@ -67,15 +65,34 @@
     },
     "chakra": {
       "title": "Chakra or Energy Reading",
-      "description": "Assesses the balance of the body's energy centers or chakras."
+      "description": "Assesses the balance of your body's energy centers or chakras, identifying blockages and strengths."
     }
   },
-  "logout": "Logout",
   "settings": {
     "title": "Settings",
     "language": "Language",
+    "currency": "Currency",
     "english": "English",
-    "indonesian": "Indonesian",
-    "currency": "Currency"
+    "indonesian": "Indonesian"
+  },
+  "reading": {
+    "title": "AI Tarot Interpretation",
+    "description": "Generate a personalized reading for your clients.",
+    "selectClientTitle": "1. Select Client",
+    "selectClientPlaceholder": "Choose a client...",
+    "drawCardsTitle": "2. Draw Cards",
+    "drawCardsButton": "Draw Three Cards",
+    "spreadTitle": "Your Spread",
+    "spreadDescription": "Past, Present, and Future.",
+    "getInterpretation": "Get AI Interpretation",
+    "interpretationTitle": "AI-Powered Interpretation for {{name}}",
+    "loadingMessage": "The spirits are whispering...",
+    "shareButton": "Share Reading",
+    "toast": {
+      "missingInfoTitle": "Missing Information",
+      "missingInfoDesc": "Please select a client and draw cards first.",
+      "failedTitle": "Interpretation Failed",
+      "failedDesc": "Could not get an interpretation from the AI. Please try again."
+    }
   }
 }

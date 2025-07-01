@@ -23,6 +23,9 @@ const InterpretTarotReadingInputSchema = z.object({
     .describe(
       'A summary of the user booking history, including the types of readings they have had and any notes from previous sessions.'
     ),
+  language: z
+    .string()
+    .describe('The language for the interpretation (e.g., "en", "id").'),
 });
 export type InterpretTarotReadingInput = z.infer<typeof InterpretTarotReadingInputSchema>;
 
@@ -49,6 +52,8 @@ const prompt = ai.definePrompt({
   prompt: `You are an expert tarot reader, skilled in providing personalized and insightful interpretations.
 
   Based on the tarot cards drawn and the user's booking history, provide a detailed interpretation that is relevant to their situation.
+
+  The interpretation must be in the following language: {{{language}}}.
 
   Tarot Cards: {{{tarotCards}}}
   Booking History: {{{bookingHistory}}}

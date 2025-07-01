@@ -1,9 +1,10 @@
 {
   "mysticAgenda": "Mystic Agenda",
+  "logout": "Keluar",
   "dashboard": {
     "title": "Dasbor",
-    "welcome": "Selamat Datang Kembali!",
-    "description": "Berikut adalah ringkasan bisnis pembacaan tarot Anda.",
+    "welcome": "Selamat datang kembali, Peramal!",
+    "description": "Inilah yang terjadi hari ini.",
     "scheduleAppointment": "Jadwalkan Janji Temu",
     "totalRevenue": "Total Pendapatan",
     "totalClients": "Total Klien",
@@ -23,59 +24,75 @@
   "aiReading": {
     "title": "Pembacaan AI"
   },
-  "reading": {
-    "getInterpretation": "Dapatkan Interpretasi AI"
-  },
   "services": {
     "title": "Layanan",
     "pageDescription": "Jelajahi berbagai layanan pembacaan tarot yang kami tawarkan.",
     "general": {
       "title": "Pembacaan Umum",
-      "description": "Gambaran besar tentang energi saat ini. Cocok untuk klien yang tidak punya pertanyaan spesifik."
+      "description": "Gambaran besar tentang energi Anda saat ini. Cocok untuk klien yang tidak punya pertanyaan spesifik."
     },
     "love": {
-      "title": "Pembacaan Asmara & Hubungan",
-      "description": "Fokus pada hubungan asmara (pasangan, mantan, calon). Energi cinta, kesetiaan, masa depan hubungan."
+      "title": "Pembacaan Cinta & Hubungan",
+      "description": "Berfokus pada hubungan asmara (pasangan, mantan, calon). Menjelajahi energi cinta, kesetiaan, dan masa depan hubungan."
     },
     "career": {
       "title": "Pembacaan Karier & Bisnis",
-      "description": "Arah karier, pilihan pekerjaan, peluang usaha. Cocok untuk yang sedang galau resign, interview, promosi."
+      "description": "Panduan arah karier, pilihan pekerjaan, dan peluang usaha. Cocok untuk yang sedang galau tentang karier."
     },
     "finance": {
       "title": "Pembacaan Keuangan",
-      "description": "Energi keuangan, peluang rejeki, pengeluaran, investasi. Bisa digabung dengan saran tindakan."
+      "description": "Wawasan tentang energi keuangan Anda, peluang rejeki, pengeluaran, dan investasi. Bisa digabung dengan saran tindakan."
     },
     "spiritual": {
       "title": "Pembacaan Spiritual & Penyembuhan",
-      "description": "Pembacaan aura, karma, masa lalu, energi batin. Cocok untuk yang butuh refleksi diri atau penyembuhan emosional."
+      "description": "Mengkaji aura, karma, masa lalu, dan energi batin Anda. Untuk refleksi diri dan penyembuhan emosional."
     },
     "yesNo": {
       "title": "Pembacaan Ya atau Tidak",
-      "description": "Jawaban langsung untuk 1 pertanyaan spesifik. Cepat dan simpel, cocok untuk layanan express."
+      "description": "Jawaban langsung untuk satu pertanyaan spesifik. Cepat dan simpel, cocok untuk layanan kilat."
     },
     "timeBased": {
       "title": "Pembacaan Berbasis Waktu",
-      "description": "Energi mingguan, bulanan, atau tahunan. Forecast atau prediksi waktu tertentu."
+      "description": "Prakiraan energi untuk mingguan, bulanan, atau tahunan. Lihat apa yang menanti pada periode tertentu."
     },
     "ppf": {
-      "title": "Pembacaan Masa Lalu-Sekarang-Masa Depan",
-      "description": "Menyorot masa lalu, kondisi saat ini, dan prediksi masa depan."
+      "title": "Pembacaan Masa Lalu-Kini-Masa Depan",
+      "description": "Menyorot pengaruh dari masa lalu, kondisi saat ini, dan prediksi masa depan."
     },
     "soulmate": {
-      "title": "Pembacaan Belahan Jiwa / Twin Flame",
-      "description": "Koneksi jiwa, hubungan spiritual, pasangan takdir."
+      "title": "Pembacaan Belahan Jiwa / Kembar Api",
+      "description": "Menjelajahi koneksi jiwa, hubungan spiritual, dan pasangan takdir."
     },
     "chakra": {
       "title": "Pembacaan Cakra atau Energi",
-      "description": "Menilai keseimbangan energi atau cakra tubuh."
+      "description": "Menilai keseimbangan pusat energi atau cakra tubuh Anda, mengidentifikasi sumbatan dan kekuatan."
     }
   },
-  "logout": "Keluar",
   "settings": {
     "title": "Pengaturan",
     "language": "Bahasa",
+    "currency": "Mata Uang",
     "english": "Inggris",
-    "indonesian": "Indonesia",
-    "currency": "Mata Uang"
+    "indonesian": "Indonesia"
+  },
+  "reading": {
+    "title": "Interpretasi Tarot AI",
+    "description": "Hasilkan pembacaan yang dipersonalisasi untuk klien Anda.",
+    "selectClientTitle": "1. Pilih Klien",
+    "selectClientPlaceholder": "Pilih seorang klien...",
+    "drawCardsTitle": "2. Ambil Kartu",
+    "drawCardsButton": "Ambil Tiga Kartu",
+    "spreadTitle": "Tebaran Anda",
+    "spreadDescription": "Masa Lalu, Masa Kini, dan Masa Depan.",
+    "getInterpretation": "Dapatkan Interpretasi AI",
+    "interpretationTitle": "Interpretasi Berbasis AI untuk {{name}}",
+    "loadingMessage": "Para arwah sedang berbisik...",
+    "shareButton": "Bagikan Bacaan",
+    "toast": {
+      "missingInfoTitle": "Informasi Kurang",
+      "missingInfoDesc": "Silakan pilih klien dan ambil kartu terlebih dahulu.",
+      "failedTitle": "Interpretasi Gagal",
+      "failedDesc": "Tidak dapat memperoleh interpretasi dari AI. Silakan coba lagi."
+    }
   }
 }

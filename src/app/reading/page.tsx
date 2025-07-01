@@ -13,9 +13,11 @@ import { interpretTarotReading } from '@/ai/flows/interpret-tarot-reading';
 import { WandSparkles, Sparkles, Loader2, Share2 } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
 import { useTranslation } from 'react-i18next';
+import { useSettings } from '@/context/SettingsContext';
 
 export default function ReadingPage() {
   const { t } = useTranslation();
+  const { language } = useSettings();
   const [selectedCustomerId, setSelectedCustomerId] = useState<string | null>(null);
   const [drawnCards, setDrawnCards] = useState<(TarotCardType | null)[]>([null, null, null]);
   const [areCardsFlipped, setAreCardsFlipped] = useState(false);
@@ -41,8 +43,8 @@ export default function ReadingPage() {
   const handleGetInterpretation = async () => {
     if (!selectedCustomerId || drawnCards.some(c => !c)) {
       toast({
-        title: "Missing Information",
-        description: "Please select a client and draw cards first.",
+        title: t('reading.toast.missingInfoTitle'),
+        description: t('reading.toast.missingInfoDesc'),
         variant: "destructive",
       })
       return;
@@ -60,6 +62,7 @@ export default function ReadingPage() {
       const result = await interpretTarotReading({
         tarotCards: cardNames,
         bookingHistory: bookingHistory,
+        language: language,
       });
       setInterpretation(result.interpretation);
       // In a real app, this ID would come from saving the reading to a database.
@@ -67,8 +70,8 @@ export default function ReadingPage() {
     } catch (error) {
       console.error('Error getting interpretation:', error);
       toast({
-        title: "Interpretation Failed",
-        description: "Could not get an interpretation from the AI. Please try again.",
+        title: t('reading.toast.failedTitle'),
+        description: t('reading.toast.failedDesc'),
         variant: "destructive",
       })
     } finally {
@@ -81,19 +84,19 @@ export default function ReadingPage() {
   return (
     <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6">
       <PageHeader
-        title="AI Tarot Interpretation"
-        description="Generate a personalized reading for your clients."
+        title={t('reading.title')}
+        description={t('reading.description')}
       />
       <div className="grid gap-6 lg:grid-cols-3">
         <div className="lg:col-span-1 flex flex-col gap-6">
           <Card>
             <CardHeader>
-              <CardTitle className="font-headline">1. Select Client</CardTitle>
+              <CardTitle className="font-headline">{t('reading.selectClientTitle')}</CardTitle>
             </CardHeader>
             <CardContent>
               <Select onValueChange={(value) => { setSelectedCustomerId(value); setInterpretation(null); setReadingId(null); setDrawnCards([null, null, null]); setAreCardsFlipped(false); }} value={selectedCustomerId ?? undefined}>
                 <SelectTrigger>
-                  <SelectValue placeholder="Choose a client..." />
+                  <SelectValue placeholder={t('reading.selectClientPlaceholder')} />
                 </SelectTrigger>
                 <SelectContent>
                   {customers.map(customer => (
@@ -105,11 +108,11 @@ export default function ReadingPage() {
           </Card>
           <Card>
             <CardHeader>
-              <CardTitle className="font-headline">2. Draw Cards</CardTitle>
+              <CardTitle className="font-headline">{t('reading.drawCardsTitle')}</CardTitle>
             </CardHeader>
             <CardContent>
               <Button onClick={handleDrawCards} className="w-full" disabled={!selectedCustomerId}>
-                <WandSparkles className="mr-2 h-4 w-4" /> Draw Three Cards
+                <WandSparkles className="mr-2 h-4 w-4" /> {t('reading.drawCardsButton')}
               </Button>
             </CardContent>
           </Card>
@@ -117,14 +120,14 @@ export default function ReadingPage() {
         <div className="lg:col-span-2">
             <Card className="min-h-[400px]">
                 <CardHeader>
-                    <CardTitle className="font-headline">Your Spread</CardTitle>
-                    <CardDescription>Past, Present, and Future.</CardDescription>
+                    <CardTitle className="font-headline">{t('reading.spreadTitle')}</CardTitle>
+                    <CardDescription>{t('reading.spreadDescription')}</CardDescription>
                 </CardHeader>
                 <CardContent className="flex flex-col items-center justify-center gap-4">
                     <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8">
-                        <TarotCard card={drawnCards[0]} isFlipped={areCardsFlipped} className="w-[120px] h-[210px] md:w-[200px] md:h-[350px]" />
-                        <TarotCard card={drawnCards[1]} isFlipped={areCardsFlipped} className="w-[120px] h-[210px] md:w-[200px] md:h-[350px]" />
-                        <TarotCard card={drawnCards[2]} isFlipped={areCardsFlipped} className="w-[120px] h-[210px] md:w-[200px] md:h-[350px]" />
+                        <TarotCard card={drawnCards[0]} isFlipped={areCardsFlipped} className="w-[120px] h-[210px] sm:w-[160px] sm:h-[280px] md:w-[200px] md:h-[350px]" />
+                        <TarotCard card={drawnCards[1]} isFlipped={areCardsFlipped} className="w-[120px] h-[210px] sm:w-[160px] sm:h-[280px] md:w-[200px] md:h-[350px]" />
+                        <TarotCard card={drawnCards[2]} isFlipped={areCardsFlipped} className="w-[120px] h-[210px] sm:w-[160px] sm:h-[280px] md:w-[200px] md:h-[350px]" />
                     </div>
                     {areCardsFlipped && (
                         <Button onClick={handleGetInterpretation} disabled={isLoading || !selectedCustomerId} size="lg" className="mt-4">
@@ -139,13 +142,13 @@ export default function ReadingPage() {
       { (isLoading || interpretation) &&
         <Card>
             <CardHeader>
-                <CardTitle className="font-headline">AI-Powered Interpretation for {selectedCustomer?.name}</CardTitle>
+                <CardTitle className="font-headline">{t('reading.interpretationTitle', { name: selectedCustomer?.name })}</CardTitle>
             </CardHeader>
             <CardContent>
                 {isLoading && (
                     <div className="flex items-center justify-center p-8">
                         <Loader2 className="h-8 w-8 animate-spin text-primary" />
-                        <p className="ml-4 text-muted-foreground">The spirits are whispering...</p>
+                        <p className="ml-4 text-muted-foreground">{t('reading.loadingMessage')}</p>
                     </div>
                 )}
                 {interpretation && (
@@ -159,7 +162,7 @@ export default function ReadingPage() {
                              <div className="flex justify-end mt-6">
                                 <Button asChild>
                                     <Link href={`/share/${readingId}`} target="_blank" rel="noopener noreferrer">
-                                        <Share2 className="mr-2 h-4 w-4" /> Share Reading
+                                        <Share2 className="mr-2 h-4 w-4" /> {t('reading.shareButton')}
                                     </Link>
                                 </Button>
                             </div>
