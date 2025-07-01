@@ -1,3 +1,4 @@
+
 'use client';
 
 import {
@@ -24,6 +25,7 @@ import {
   LogOut,
   Globe,
   Check,
+  BookHeart,
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useSettings } from '@/context/SettingsContext';
@@ -39,6 +41,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
     { href: '/appointments', label: t('appointments.title'), icon: Calendar },
     { href: '/customers', label: t('customers.title'), icon: Users },
     { href: '/reading', label: t('aiReading.title'), icon: WandSparkles },
+    { href: '/services', label: t('services.title'), icon: BookHeart },
   ];
 
   if (pathname.startsWith('/share/')) {

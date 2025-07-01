@@ -1,37 +1,79 @@
+
 {
   "mysticAgenda": "Mystic Agenda",
   "dashboard": {
     "title": "Dashboard",
     "welcome": "Welcome back!",
-    "description": "Here's a snapshot of your mystical business.",
+    "description": "Here's a quick overview of your business.",
     "scheduleAppointment": "Schedule Appointment",
     "totalRevenue": "Total Revenue",
     "totalClients": "Total Clients",
-    "appointmentsThisMonth": "Appointments this month",
-    "newClientsMonth": "New Clients (Month)",
+    "appointmentsThisMonth": "Appointments this Month",
+    "newClientsMonth": "New Clients this Month",
     "upcomingAppointments": "Upcoming Appointments",
     "customer": "Customer",
     "date": "Date",
     "time": "Time"
   },
   "appointments": {
-    "title": "Appointments",
-    "description": "Manage your client sessions."
+    "title": "Appointments"
   },
   "customers": {
-    "title": "Customers",
-    "description": "View and manage your client list."
+    "title": "Customers"
   },
   "aiReading": {
-    "title": "AI Reading",
-    "description": "Generate a personalized reading for your clients."
+    "title": "AI Reading"
   },
   "logout": "Logout",
   "settings": {
     "title": "Settings",
     "language": "Language",
-    "currency": "Currency",
     "english": "English",
-    "indonesian": "Indonesian"
+    "indonesian": "Indonesian",
+    "currency": "Currency"
+  },
+  "services": {
+    "title": "Services",
+    "pageDescription": "Explore the variety of tarot readings available for your clients.",
+    "general": {
+      "title": "General Reading",
+      "description": "A big picture overview of the current energy. Suitable for clients who don't have a specific question."
+    },
+    "love": {
+      "title": "Love & Relationship Reading",
+      "description": "Romantic relationships (partner, ex, potential). Love energy, loyalty, future of the relationship. Suitable for those in courtship, LDR, or conflict."
+    },
+    "career": {
+      "title": "Career & Business Reading",
+      "description": "Career direction, job choices, business opportunities. Suitable for those contemplating resignation, interviews, or promotions."
+    },
+    "finance": {
+      "title": "Finance Reading",
+      "description": "Financial energy, fortune opportunities, expenses, investments. Can be combined with actionable advice."
+    },
+    "spiritual": {
+      "title": "Spiritual & Healing Reading",
+      "description": "Aura, karma, past life, and inner energy readings. Suitable for those needing self-reflection or emotional healing."
+    },
+    "yesNo": {
+      "title": "Yes or No Reading",
+      "description": "A direct answer to one specific question. Quick and simple, perfect for an express service."
+    },
+    "timeBased": {
+      "title": "Time-based Reading",
+      "description": "Weekly, monthly, or yearly energy forecast. A prediction for a specific period."
+    },
+    "ppf": {
+      "title": "Past-Present-Future Reading",
+      "description": "Highlights the past, current situation, and future predictions."
+    },
+    "soulmate": {
+      "title": "Soulmate / Twin Flame Reading",
+      "description": "Soul connections, spiritual relationships, destined partners."
+    },
+    "chakra": {
+      "title": "Chakra or Energy Reading",
+      "description": "Assesses the balance of the body's energy centers or chakras."
+    }
   }
 }
