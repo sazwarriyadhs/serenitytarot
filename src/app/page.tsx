@@ -1,3 +1,5 @@
+'use client';
+
 import { PageHeader } from "@/components/PageHeader";
 import { StatCard } from "@/components/StatCard";
 import { Button } from "@/components/ui/button";
@@ -7,8 +9,13 @@ import { appointments, customers } from "@/lib/data";
 import { ArrowUpRight, CalendarCheck, Users, DollarSign } from "lucide-react";
 import Link from 'next/link';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { useTranslation } from "react-i18next";
+import { useSettings } from "@/context/SettingsContext";
 
 export default function Dashboard() {
+  const { t } = useTranslation();
+  const { formatCurrency } = useSettings();
+  
   const upcomingAppointments = appointments.filter(a => a.status === 'Upcoming').slice(0, 5);
   const totalRevenue = 5231.89; // Mock data
   const newClientsThisMonth = 12; // Mock data
@@ -16,27 +23,27 @@ export default function Dashboard() {
   return (
     <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6">
       <PageHeader
-        title="Welcome back!"
-        description="Here's a snapshot of your mystical business."
-        actions={<Button asChild><Link href="/appointments">Schedule Appointment</Link></Button>}
+        title={t('dashboard.welcome')}
+        description={t('dashboard.description')}
+        actions={<Button asChild><Link href="/appointments">{t('dashboard.scheduleAppointment')}</Link></Button>}
       />
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <StatCard title="Total Revenue" value={`$${totalRevenue.toFixed(2)}`} icon={DollarSign} />
-        <StatCard title="Total Clients" value={`+${customers.length}`} icon={Users} />
-        <StatCard title="Appointments this month" value={`+${appointments.length}`} icon={CalendarCheck} />
-        <StatCard title="New Clients (Month)" value={`+${newClientsThisMonth}`} icon={ArrowUpRight} />
+        <StatCard title={t('dashboard.totalRevenue')} value={formatCurrency(totalRevenue)} icon={DollarSign} />
+        <StatCard title={t('dashboard.totalClients')} value={`+${customers.length}`} icon={Users} />
+        <StatCard title={t('dashboard.appointmentsThisMonth')} value={`+${appointments.length}`} icon={CalendarCheck} />
+        <StatCard title={t('dashboard.newClientsMonth')} value={`+${newClientsThisMonth}`} icon={ArrowUpRight} />
       </div>
       <Card>
         <CardHeader>
-          <CardTitle className="font-headline">Upcoming Appointments</CardTitle>
+          <CardTitle className="font-headline">{t('dashboard.upcomingAppointments')}</CardTitle>
         </CardHeader>
         <CardContent>
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Customer</TableHead>
-                <TableHead className="hidden md:table-cell">Date</TableHead>
-                <TableHead className="text-right">Time</TableHead>
+                <TableHead>{t('dashboard.customer')}</TableHead>
+                <TableHead className="hidden md:table-cell">{t('dashboard.date')}</TableHead>
+                <TableHead className="text-right">{t('dashboard.time')}</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>

@@ -22,20 +22,32 @@ import {
   Users,
   WandSparkles,
   LogOut,
+  Globe,
+  Check,
 } from 'lucide-react';
-
-const menuItems = [
-  { href: '/', label: 'Dashboard', icon: LayoutDashboard },
-  { href: '/appointments', label: 'Appointments', icon: Calendar },
-  { href: '/customers', label: 'Customers', icon: Users },
-  { href: '/reading', label: 'AI Reading', icon: WandSparkles },
-];
+import { useTranslation } from 'react-i18next';
+import { useSettings } from '@/context/SettingsContext';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from './ui/dropdown-menu';
 
 export function AppLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const { t, i18n } = useTranslation();
+  const { currency, setCurrency, language, setLanguage } = useSettings();
+
+  const menuItems = [
+    { href: '/', label: t('dashboard.title'), icon: LayoutDashboard },
+    { href: '/appointments', label: t('appointments.title'), icon: Calendar },
+    { href: '/customers', label: t('customers.title'), icon: Users },
+    { href: '/reading', label: t('aiReading.title'), icon: WandSparkles },
+  ];
 
   if (pathname.startsWith('/share/')) {
     return <>{children}</>;
+  }
+
+  const changeLanguage = (lng: 'en' | 'id') => {
+    setLanguage(lng);
+    i18n.changeLanguage(lng);
   }
 
   return (
@@ -44,7 +56,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
         <SidebarHeader className="p-4">
           <div className="flex items-center gap-2">
             <Logo className="size-8 text-accent" />
-            <h2 className="text-xl font-headline font-semibold text-white">Mystic Agenda</h2>
+            <h2 className="text-xl font-headline font-semibold text-white">{t('mysticAgenda')}</h2>
           </div>
         </SidebarHeader>
         <SidebarContent>
@@ -70,18 +82,47 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
             <SidebarMenuItem>
               <SidebarMenuButton className="text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
                 <LogOut />
-                <span>Logout</span>
+                <span>{t('logout')}</span>
               </SidebarMenuButton>
             </SidebarMenuItem>
           </SidebarMenu>
         </SidebarFooter>
       </Sidebar>
       <SidebarInset>
-        <header className="flex h-14 items-center gap-4 border-b bg-background px-4 md:px-6 sticky top-0 z-30">
-            <SidebarTrigger className="md:hidden" />
-            <div className="flex-1">
-                <h1 className="text-lg font-semibold md:text-xl font-headline">Mystic Agenda</h1>
+        <header className="flex h-14 items-center justify-between gap-4 border-b bg-background px-4 md:px-6 sticky top-0 z-30">
+            <div className='flex items-center gap-4'>
+                <SidebarTrigger className="md:hidden" />
+                <h1 className="hidden text-lg font-semibold md:block md:text-xl font-headline">{t('mysticAgenda')}</h1>
             </div>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" size="icon">
+                  <Globe className="h-4 w-4" />
+                  <span className="sr-only">{t('settings.title')}</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuLabel>{t('settings.language')}</DropdownMenuLabel>
+                <DropdownMenuItem onSelect={() => changeLanguage('en')}>
+                  <span className='w-4 mr-2'>{language === 'en' && <Check className='h-4 w-4'/>}</span>
+                  {t('settings.english')}
+                </DropdownMenuItem>
+                <DropdownMenuItem onSelect={() => changeLanguage('id')}>
+                  <span className='w-4 mr-2'>{language === 'id' && <Check className='h-4 w-4'/>}</span>
+                  {t('settings.indonesian')}
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuLabel>{t('settings.currency')}</DropdownMenuLabel>
+                <DropdownMenuItem onSelect={() => setCurrency('USD')}>
+                   <span className='w-4 mr-2'>{currency === 'USD' && <Check className='h-4 w-4'/>}</span>
+                  US$
+                </DropdownMenuItem>
+                <DropdownMenuItem onSelect={() => setCurrency('IDR')}>
+                   <span className='w-4 mr-2'>{currency === 'IDR' && <Check className='h-4 w-4'/>}</span>
+                  IDR
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
         </header>
         {children}
         </SidebarInset>

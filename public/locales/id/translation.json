@@ -1,0 +1,37 @@
+{
+  "mysticAgenda": "Agenda Mistik",
+  "dashboard": {
+    "title": "Dasbor",
+    "welcome": "Selamat datang kembali!",
+    "description": "Berikut adalah gambaran singkat bisnis mistis Anda.",
+    "scheduleAppointment": "Jadwalkan Janji Temu",
+    "totalRevenue": "Total Pendapatan",
+    "totalClients": "Total Klien",
+    "appointmentsThisMonth": "Janji Temu Bulan Ini",
+    "newClientsMonth": "Klien Baru (Bulan)",
+    "upcomingAppointments": "Janji Temu Mendatang",
+    "customer": "Pelanggan",
+    "date": "Tanggal",
+    "time": "Waktu"
+  },
+  "appointments": {
+    "title": "Janji Temu",
+    "description": "Kelola sesi klien Anda."
+  },
+  "customers": {
+    "title": "Pelanggan",
+    "description": "Lihat dan kelola daftar klien Anda."
+  },
+  "aiReading": {
+    "title": "Pembacaan AI",
+    "description": "Hasilkan pembacaan yang dipersonalisasi untuk klien Anda."
+  },
+  "logout": "Keluar",
+  "settings": {
+    "title": "Pengaturan",
+    "language": "Bahasa",
+    "currency": "Mata Uang",
+    "english": "Inggris",
+    "indonesian": "Indonesia"
+  }
+}

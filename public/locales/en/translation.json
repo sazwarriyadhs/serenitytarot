@@ -1,0 +1,37 @@
+{
+  "mysticAgenda": "Mystic Agenda",
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome back!",
+    "description": "Here's a snapshot of your mystical business.",
+    "scheduleAppointment": "Schedule Appointment",
+    "totalRevenue": "Total Revenue",
+    "totalClients": "Total Clients",
+    "appointmentsThisMonth": "Appointments this month",
+    "newClientsMonth": "New Clients (Month)",
+    "upcomingAppointments": "Upcoming Appointments",
+    "customer": "Customer",
+    "date": "Date",
+    "time": "Time"
+  },
+  "appointments": {
+    "title": "Appointments",
+    "description": "Manage your client sessions."
+  },
+  "customers": {
+    "title": "Customers",
+    "description": "View and manage your client list."
+  },
+  "aiReading": {
+    "title": "AI Reading",
+    "description": "Generate a personalized reading for your clients."
+  },
+  "logout": "Logout",
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "currency": "Currency",
+    "english": "English",
+    "indonesian": "Indonesian"
+  }
+}
