@@ -70,39 +70,35 @@ export const appointments: Appointment[] = [
   { id: 'app6', customerId: '2', customerName: 'Spencer Hastings', customerAvatarUrl: 'https://placehold.co/100x100.png', date: '2024-07-15', time: '01:00 PM', status: 'Cancelled', services: [serviceOfferings[8]], totalPrice: 100, totalDuration: 45 },
 ];
 
-const formatCardNameForImage = (name: string) => {
-    return name.toLowerCase().replace(/ /g, '_');
-}
-
 const cardData = [
-    { name: 'The Fool', name_id: 'Si Pandir', description: 'Permulaan baru, kepolosan, spontanitas' },
-    { name: 'The Magician', name_id: 'Sang Pesulap', description: 'Manifestasi, banyak akal, kekuatan' },
-    { name: 'The High Priestess', name_id: 'Sang Pendeta Wanita Agung', description: 'Intuisi, alam bawah sadar, misteri' },
-    { name: 'The Empress', name_id: 'Sang Maharani', description: 'Kewanitaan, keindahan, alam, pengasuhan' },
-    { name: 'The Emperor', name_id: 'Sang Kaisar', description: 'Otoritas, struktur, kontrol, kebapakan' },
-    { name: 'The Hierophant', name_id: 'Sang Imam Agung', description: 'Tradisi, konformitas, moralitas, etika' },
-    { name: 'The Lovers', name_id: 'Sang Pecinta', description: 'Cinta, harmoni, hubungan, pilihan' },
-    { name: 'The Chariot', name_id: 'Kereta Perang', description: 'Kontrol, kemauan keras, kesuksesan, tindakan' },
-    { name: 'Strength', name_id: 'Kekuatan', description: 'Keberanian, persuasi, pengaruh, kasih sayang' },
-    { name: 'The Hermit', name_id: 'Sang Pertapa', description: 'Pencarian jiwa, introspeksi, kesendirian' },
-    { name: 'Wheel of Fortune', name_id: 'Roda Keberuntungan', description: 'Keberuntungan, karma, siklus hidup, takdir' },
-    { name: 'Justice', name_id: 'Keadilan', description: 'Kewajaran, kebenaran, sebab dan akibat, hukum' },
-    { name: 'The Hanged Man', name_id: 'Manusia Tergantung', description: 'Penangguhan, pembatasan, melepaskan' },
-    { name: 'Death', name_id: 'Kematian', description: 'Akhir, awal, perubahan, transformasi' },
-    { name: 'Temperance', name_id: 'Keseimbangan', description: 'Keseimbangan, moderasi, kesabaran, tujuan' },
-    { name: 'The Devil', name_id: 'Sang Iblis', description: 'Perbudakan, kecanduan, seksualitas, materialisme' },
-    { name: 'The Tower', name_id: 'Menara', description: 'Perubahan mendadak, pergolakan, kekacauan, wahyu' },
-    { name: 'The Star', name_id: 'Bintang', description: 'Harapan, keyakinan, tujuan, pembaruan' },
-    { name: 'The Moon', name_id: 'Bulan', description: 'Ilusi, ketakutan, kecemasan, alam bawah sadar' },
-    { name: 'The Sun', name_id: 'Matahari', description: 'Positivitas, kesenangan, kehangatan, kesuksesan' },
-    { name: 'Judgement', name_id: 'Penghakiman', description: 'Kelahiran kembali, panggilan batin, pembebasan' },
-    { name: 'The World', name_id: 'Dunia', description: 'Penyelesaian, integrasi, pencapaian' },
+    { name: 'The Fool', name_id: 'Si Pandir', description: 'Permulaan baru, kepolosan, spontanitas', imageUrl: '/images/card/major_arcana_fool.png' },
+    { name: 'The Magician', name_id: 'Sang Pesulap', description: 'Manifestasi, banyak akal, kekuatan', imageUrl: '/images/card/major_arcana_magician.png' },
+    { name: 'The High Priestess', name_id: 'Sang Pendeta Wanita Agung', description: 'Intuisi, alam bawah sadar, misteri', imageUrl: '/images/card/major_arcana_priestess.png' },
+    { name: 'The Empress', name_id: 'Sang Maharani', description: 'Kewanitaan, keindahan, alam, pengasuhan', imageUrl: '/images/card/major_arcana_empress.png' },
+    { name: 'The Emperor', name_id: 'Sang Kaisar', description: 'Otoritas, struktur, kontrol, kebapakan', imageUrl: '/images/card/major_arcana_emperor.png' },
+    { name: 'The Hierophant', name_id: 'Sang Imam Agung', description: 'Tradisi, konformitas, moralitas, etika', imageUrl: '/images/card/major_arcana_hierophant.png' },
+    { name: 'The Lovers', name_id: 'Sang Pecinta', description: 'Cinta, harmoni, hubungan, pilihan', imageUrl: '/images/card/major_arcana_lovers.png' },
+    { name: 'The Chariot', name_id: 'Kereta Perang', description: 'Kontrol, kemauan keras, kesuksesan, tindakan', imageUrl: '/images/card/major_arcana_chariot.png' },
+    { name: 'Strength', name_id: 'Kekuatan', description: 'Keberanian, persuasi, pengaruh, kasih sayang', imageUrl: '/images/card/major_arcana_strength.png' },
+    { name: 'The Hermit', name_id: 'Sang Pertapa', description: 'Pencarian jiwa, introspeksi, kesendirian', imageUrl: '/images/card/major_arcana_hermit.png' },
+    { name: 'Wheel of Fortune', name_id: 'Roda Keberuntungan', description: 'Keberuntungan, karma, siklus hidup, takdir', imageUrl: '/images/card/major_arcana_wheel_of_fortune.png' },
+    { name: 'Justice', name_id: 'Keadilan', description: 'Kewajaran, kebenaran, sebab dan akibat, hukum', imageUrl: '/images/card/major_arcana_justice.png' },
+    { name: 'The Hanged Man', name_id: 'Manusia Tergantung', description: 'Penangguhan, pembatasan, melepaskan', imageUrl: '/images/card/major_arcana_hanged_man.png' },
+    { name: 'Death', name_id: 'Kematian', description: 'Akhir, awal, perubahan, transformasi', imageUrl: '/images/card/major_arcana_death.png' },
+    { name: 'Temperance', name_id: 'Keseimbangan', description: 'Keseimbangan, moderasi, kesabaran, tujuan', imageUrl: '/images/card/major_arcana_temperance.png' },
+    { name: 'The Devil', name_id: 'Sang Iblis', description: 'Perbudakan, kecanduan, seksualitas, materialisme', imageUrl: '/images/card/major_arcana_devil.png' },
+    { name: 'The Tower', name_id: 'Menara', description: 'Perubahan mendadak, pergolakan, kekacauan, wahyu', imageUrl: '/images/card/major_arcana_tower.png' },
+    { name: 'The Star', name_id: 'Bintang', description: 'Harapan, keyakinan, tujuan, pembaruan', imageUrl: '/images/card/major_arcana_star.png' },
+    { name: 'The Moon', name_id: 'Bulan', description: 'Ilusi, ketakutan, kecemasan, alam bawah sadar', imageUrl: '/images/card/major_arcana_moon.png' },
+    { name: 'The Sun', name_id: 'Matahari', description: 'Positivitas, kesenangan, kehangatan, kesuksesan', imageUrl: '/images/card/major_arcana_sun.png' },
+    { name: 'Judgement', name_id: 'Penghakiman', description: 'Kelahiran kembali, panggilan batin, pembebasan', imageUrl: '/images/card/major_arcana_judgement.png' },
+    { name: 'The World', name_id: 'Dunia', description: 'Penyelesaian, integrasi, pencapaian', imageUrl: '/images/card/major_arcana_world.png' },
 ];
 
 export const tarotDeck: TarotCard[] = cardData.map(card => ({
     name: card.name_id,
     name_en: card.name,
-    imageUrl: `/images/card/${formatCardNameForImage(card.name_id)}.png`,
+    imageUrl: card.imageUrl,
     description: card.description,
 }));
 
@@ -117,5 +113,7 @@ export const tarotMaster: TarotMaster = {
   specialties: ['Love & Relationship', 'Career & Business', 'Spiritual Healing'],
   experienceYears: 15,
 };
+
+    
 
     
