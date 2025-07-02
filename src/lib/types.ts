@@ -23,6 +23,9 @@ export type Appointment = {
   date: string;
   time: string;
   status: 'Upcoming' | 'Completed' | 'Cancelled';
+  services: ServiceOffering[];
+  totalPrice: number;
+  totalDuration: number; // in minutes
 };
 
 export type TarotCard = {
@@ -37,6 +40,8 @@ export type ServiceOffering = {
   iconName: string;
   title: string;
   description: string;
+  price: number; // in USD
+  duration: number; // in minutes
 };
 
 export type TarotMaster = {

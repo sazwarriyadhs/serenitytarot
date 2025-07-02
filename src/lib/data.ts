@@ -1,6 +1,19 @@
 
 import type { Customer, Appointment, TarotCard, ServiceOffering, TarotMaster } from './types';
 
+export const serviceOfferings: ServiceOffering[] = [
+  { id: 's1', iconName: 'Globe', title: 'General Reading', description: 'A broad overview of your current energies. Perfect for clients without a specific question.', price: 50, duration: 30 },
+  { id: 's2', iconName: 'Heart', title: 'Love & Relationship Reading', description: 'Romantic relationships (partner, ex, potential). Love energy, loyalty, relationship future. Suitable for those in new relationships, LDRs, or conflicts.', price: 75, duration: 45 },
+  { id: 's3', iconName: 'Briefcase', title: 'Career & Business Reading', description: 'Career direction, job choices, business opportunities. Suitable for those contemplating resignation, interviews, or promotions.', price: 65, duration: 45 },
+  { id: 's4', iconName: 'Banknote', title: 'Finance Reading', description: 'Financial energy, opportunities for prosperity, expenses, investments. Can be combined with actionable advice.', price: 60, duration: 30 },
+  { id: 's5', iconName: 'HandHeart', title: 'Spiritual & Healing Reading', description: 'Aura, karma, past life, and inner energy readings. Suitable for those needing self-reflection or emotional healing.', price: 90, duration: 60 },
+  { id: 's6', iconName: 'ThumbsUp', title: '"Yes or No" Reading', description: 'A direct answer to one specific question. Quick and simple, suitable for express services.', price: 25, duration: 15 },
+  { id: 's7', iconName: 'CalendarClock', title: 'Time-based Reading', description: 'Weekly, monthly, or yearly energy forecast. Predictions for a specific period.', price: 100, duration: 60 },
+  { id: 's8', iconName: 'Hourglass', title: 'Past-Present-Future Reading', description: 'Highlights the past, current situation, and future predictions.', price: 55, duration: 30 },
+  { id: 's9', iconName: 'Stars', title: 'Soulmate / Twin Flame Reading', description: 'Soul connections, spiritual relationships, destined partners.', price: 80, duration: 45 },
+  { id: 's10', iconName: 'Orbit', title: 'Chakra or Energy Reading', description: 'Assesses the balance of the body\'s energy or chakras.', price: 70, duration: 45 },
+];
+
 export const customers: Customer[] = [
   {
     id: '1',
@@ -47,12 +60,12 @@ export const customers: Customer[] = [
 ];
 
 export const appointments: Appointment[] = [
-  { id: 'app1', customerId: '1', customerName: 'Aria Montgomery', customerAvatarUrl: 'https://placehold.co/100x100.png', date: '2024-07-25', time: '10:00 AM', status: 'Upcoming' },
-  { id: 'app2', customerId: '2', customerName: 'Spencer Hastings', customerAvatarUrl: 'https://placehold.co/100x100.png', date: '2024-07-25', time: '02:00 PM', status: 'Upcoming' },
-  { id: 'app3', customerId: '3', customerName: 'Hanna Marin', customerAvatarUrl: 'https://placehold.co/100x100.png', date: '2024-07-26', time: '11:00 AM', status: 'Upcoming' },
-  { id: 'app4', customerId: '4', customerName: 'Emily Fields', customerAvatarUrl: 'https://placehold.co/100x100.png', date: '2024-07-22', time: '03:00 PM', status: 'Completed' },
-  { id: 'app5', customerId: '1', customerName: 'Aria Montgomery', customerAvatarUrl: 'https://placehold.co/100x100.png', date: '2024-07-20', time: '09:00 AM', status: 'Completed' },
-  { id: 'app6', customerId: '2', customerName: 'Spencer Hastings', customerAvatarUrl: 'https://placehold.co/100x100.png', date: '2024-07-15', time: '01:00 PM', status: 'Cancelled' },
+  { id: 'app1', customerId: '1', customerName: 'Aria Montgomery', customerAvatarUrl: 'https://placehold.co/100x100.png', date: '2024-07-25', time: '10:00 AM', status: 'Upcoming', services: [serviceOfferings[0]], totalPrice: 50, totalDuration: 30 },
+  { id: 'app2', customerId: '2', customerName: 'Spencer Hastings', customerAvatarUrl: 'https://placehold.co/100x100.png', date: '2024-07-25', time: '02:00 PM', status: 'Upcoming', services: [serviceOfferings[1], serviceOfferings[5]], totalPrice: 100, totalDuration: 60 },
+  { id: 'app3', customerId: '3', customerName: 'Hanna Marin', customerAvatarUrl: 'https://placehold.co/100x100.png', date: '2024-07-26', time: '11:00 AM', status: 'Upcoming', services: [serviceOfferings[2]], totalPrice: 65, totalDuration: 45 },
+  { id: 'app4', customerId: '4', customerName: 'Emily Fields', customerAvatarUrl: 'https://placehold.co/100x100.png', date: '2024-07-22', time: '03:00 PM', status: 'Completed', services: [serviceOfferings[4]], totalPrice: 90, totalDuration: 60 },
+  { id: 'app5', customerId: '1', customerName: 'Aria Montgomery', customerAvatarUrl: 'https://placehold.co/100x100.png', date: '2024-07-20', time: '09:00 AM', status: 'Completed', services: [serviceOfferings[0], serviceOfferings[3]], totalPrice: 110, totalDuration: 60 },
+  { id: 'app6', customerId: '2', customerName: 'Spencer Hastings', customerAvatarUrl: 'https://placehold.co/100x100.png', date: '2024-07-15', time: '01:00 PM', status: 'Cancelled', services: [serviceOfferings[8]], totalPrice: 80, totalDuration: 45 },
 ];
 
 const formatCardNameForImage = (name: string) => {
@@ -91,18 +104,7 @@ export const tarotDeck: TarotCard[] = cardData.map(card => ({
     description: card.description,
 }));
 
-export const serviceOfferings: ServiceOffering[] = [
-  { id: 's1', iconName: 'Globe', title: 'General Reading', description: 'A broad overview of your current energies. Perfect for clients without a specific question.' },
-  { id: 's2', iconName: 'Heart', title: 'Love & Relationship Reading', description: 'Romantic relationships (partner, ex, potential). Love energy, loyalty, relationship future. Suitable for those in new relationships, LDRs, or conflicts.' },
-  { id: 's3', iconName: 'Briefcase', title: 'Career & Business Reading', description: 'Career direction, job choices, business opportunities. Suitable for those contemplating resignation, interviews, or promotions.' },
-  { id: 's4', iconName: 'Banknote', title: 'Finance Reading', description: 'Financial energy, opportunities for prosperity, expenses, investments. Can be combined with actionable advice.' },
-  { id: 's5', iconName: 'HandHeart', title: 'Spiritual & Healing Reading', description: 'Aura, karma, past life, and inner energy readings. Suitable for those needing self-reflection or emotional healing.' },
-  { id: 's6', iconName: 'ThumbsUp', title: '"Yes or No" Reading', description: 'A direct answer to one specific question. Quick and simple, suitable for express services.' },
-  { id: 's7', iconName: 'CalendarClock', title: 'Time-based Reading', description: 'Weekly, monthly, or yearly energy forecast. Predictions for a specific period.' },
-  { id: 's8', iconName: 'Hourglass', title: 'Past-Present-Future Reading', description: 'Highlights the past, current situation, and future predictions.' },
-  { id: 's9', iconName: 'Stars', title: 'Soulmate / Twin Flame Reading', description: 'Soul connections, spiritual relationships, destined partners.' },
-  { id: 's10', iconName: 'Orbit', title: 'Chakra or Energy Reading', description: 'Assesses the balance of the body\'s energy or chakras.' },
-];
+
 
 export const tarotMaster: TarotMaster = {
   id: 'master01',
