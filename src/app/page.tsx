@@ -6,19 +6,33 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { appointments, customers } from "@/lib/data";
-import { ArrowUpRight, CalendarCheck, Users, DollarSign } from "lucide-react";
+import { DollarSign, Users, ListChecks, Clock } from "lucide-react";
 import Link from 'next/link';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useTranslation } from "react-i18next";
 import { useSettings } from "@/context/SettingsContext";
+import { useMemo } from "react";
 
 export default function Dashboard() {
   const { t } = useTranslation();
   const { formatCurrency } = useSettings();
   
   const upcomingAppointments = appointments.filter(a => a.status === 'Upcoming').slice(0, 5);
-  const totalRevenue = 5231.89; // Mock data
-  const newClientsThisMonth = 12; // Mock data
+
+  const { totalRevenue, totalServicesProvided, totalHoursRead } = useMemo(() => {
+    const completedAppointments = appointments.filter(a => a.status === 'Completed');
+    
+    const revenue = completedAppointments.reduce((sum, app) => sum + app.totalPrice, 0);
+    const services = completedAppointments.reduce((sum, app) => sum + app.services.length, 0);
+    const minutes = completedAppointments.reduce((sum, app) => sum + app.totalDuration, 0);
+    const hours = (minutes / 60).toFixed(1);
+    
+    return {
+      totalRevenue: revenue,
+      totalServicesProvided: services,
+      totalHoursRead: hours,
+    };
+  }, []);
 
   return (
     <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6">
@@ -29,9 +43,9 @@ export default function Dashboard() {
       />
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <StatCard title={t('dashboard.totalRevenue')} value={formatCurrency(totalRevenue)} icon={DollarSign} />
-        <StatCard title={t('dashboard.totalClients')} value={`+${customers.length}`} icon={Users} />
-        <StatCard title={t('dashboard.appointmentsThisMonth')} value={`+${appointments.length}`} icon={CalendarCheck} />
-        <StatCard title={t('dashboard.newClientsMonth')} value={`+${newClientsThisMonth}`} icon={ArrowUpRight} />
+        <StatCard title={t('dashboard.totalClients')} value={`${customers.length}`} icon={Users} />
+        <StatCard title={t('dashboard.totalServicesProvided')} value={`${totalServicesProvided}`} icon={ListChecks} />
+        <StatCard title={t('dashboard.totalHoursRead')} value={`${totalHoursRead} ${t('dashboard.hours')}`} icon={Clock} />
       </div>
       <Card>
         <CardHeader>
