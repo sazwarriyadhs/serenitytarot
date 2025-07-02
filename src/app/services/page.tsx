@@ -17,17 +17,17 @@ export default function ServicesPage() {
         description={t('services.pageDescription')}
       />
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {serviceOfferings.map((service, index) => {
+        {serviceOfferings.map((service) => {
           return (
-            <Card key={index} className="flex flex-col transition-shadow hover:shadow-lg">
+            <Card key={service.id} className="flex flex-col transition-shadow hover:shadow-lg">
               <CardHeader>
                 <CardTitle className="font-headline flex items-center gap-3">
                   <DynamicIcon name={service.iconName as IconName} className="h-6 w-6 text-primary" />
-                  {t(service.titleKey)}
+                  {service.title}
                 </CardTitle>
               </CardHeader>
               <CardContent className="flex-grow">
-                <p className="text-muted-foreground">{t(service.descriptionKey)}</p>
+                <p className="text-muted-foreground">{service.description}</p>
               </CardContent>
             </Card>
           );

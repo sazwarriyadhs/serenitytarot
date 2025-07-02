@@ -32,7 +32,8 @@ export type TarotCard = {
 };
 
 export type ServiceOffering = {
+  id: string;
   iconName: string;
-  titleKey: string;
-  descriptionKey: string;
+  title: string;
+  description: string;
 };

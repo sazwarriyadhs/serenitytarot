@@ -91,14 +91,14 @@ export const tarotDeck: TarotCard[] = cardData.map(card => ({
 }));
 
 export const serviceOfferings: ServiceOffering[] = [
-  { iconName: 'Globe', titleKey: 'services.general.title', descriptionKey: 'services.general.description' },
-  { iconName: 'Heart', titleKey: 'services.love.title', descriptionKey: 'services.love.description' },
-  { iconName: 'Briefcase', titleKey: 'services.career.title', descriptionKey: 'services.career.description' },
-  { iconName: 'Banknote', titleKey: 'services.finance.title', descriptionKey: 'services.finance.description' },
-  { iconName: 'HandHeart', titleKey: 'services.spiritual.title', descriptionKey: 'services.spiritual.description' },
-  { iconName: 'ThumbsUp', titleKey: 'services.yesNo.title', descriptionKey: 'services.yesNo.description' },
-  { iconName: 'CalendarClock', titleKey: 'services.timeBased.title', descriptionKey: 'services.timeBased.description' },
-  { iconName: 'Hourglass', titleKey: 'services.ppf.title', descriptionKey: 'services.ppf.description' },
-  { iconName: 'Stars', titleKey: 'services.soulmate.title', descriptionKey: 'services.soulmate.description' },
-  { iconName: 'Orbit', titleKey: 'services.chakra.title', descriptionKey: 'services.chakra.description' },
+  { id: 's1', iconName: 'Globe', title: 'General Reading', description: 'A broad overview of your current energies. Perfect for clients without a specific question.' },
+  { id: 's2', iconName: 'Heart', title: 'Love & Relationship Reading', description: 'Romantic relationships (partner, ex, potential). Love energy, loyalty, relationship future. Suitable for those in new relationships, LDRs, or conflicts.' },
+  { id: 's3', iconName: 'Briefcase', title: 'Career & Business Reading', description: 'Career direction, job choices, business opportunities. Suitable for those contemplating resignation, interviews, or promotions.' },
+  { id: 's4', iconName: 'Banknote', title: 'Finance Reading', description: 'Financial energy, opportunities for prosperity, expenses, investments. Can be combined with actionable advice.' },
+  { id: 's5', iconName: 'HandHeart', title: 'Spiritual & Healing Reading', description: 'Aura, karma, past life, and inner energy readings. Suitable for those needing self-reflection or emotional healing.' },
+  { id: 's6', iconName: 'ThumbsUp', title: '"Yes or No" Reading', description: 'A direct answer to one specific question. Quick and simple, suitable for express services.' },
+  { id: 's7', iconName: 'CalendarClock', title: 'Time-based Reading', description: 'Weekly, monthly, or yearly energy forecast. Predictions for a specific period.' },
+  { id: 's8', iconName: 'Hourglass', title: 'Past-Present-Future Reading', description: 'Highlights the past, current situation, and future predictions.' },
+  { id: 's9', iconName: 'Stars', title: 'Soulmate / Twin Flame Reading', description: 'Soul connections, spiritual relationships, destined partners.' },
+  { id: 's10', iconName: 'Orbit', title: 'Chakra or Energy Reading', description: 'Assesses the balance of the body\'s energy or chakras.' },
 ];

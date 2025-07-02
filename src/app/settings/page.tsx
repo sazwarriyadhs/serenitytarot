@@ -1,20 +1,28 @@
 'use client';
 
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { PageHeader } from '@/components/PageHeader';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { serviceOfferings } from '@/lib/data';
+import { serviceOfferings as initialServiceOfferings } from '@/lib/data';
+import type { ServiceOffering } from '@/lib/types';
 import { DynamicIcon, type IconName } from '@/components/DynamicIcon';
-import { MoreHorizontal, PlusCircle } from 'lucide-react';
+import { MoreHorizontal } from 'lucide-react';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Label } from '@/components/ui/label';
 import { Switch } from '@/components/ui/switch';
+import { AddServiceDialog } from '@/components/AddServiceDialog';
 
 export default function SettingsPage() {
     const { t } = useTranslation();
+    const [serviceList, setServiceList] = useState<ServiceOffering[]>(initialServiceOfferings);
+
+    const handleAddService = (newService: ServiceOffering) => {
+        setServiceList(prev => [...prev, newService]);
+    };
 
     return (
         <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6">
@@ -36,10 +44,7 @@ export default function SettingsPage() {
                                     <CardTitle className="font-headline">{t('settings.specializations.title')}</CardTitle>
                                     <CardDescription>{t('settings.specializations.description')}</CardDescription>
                                 </div>
-                                <Button>
-                                    <PlusCircle className="mr-2 h-4 w-4" />
-                                    {t('settings.specializations.addNew')}
-                                </Button>
+                                <AddServiceDialog onServiceAdded={handleAddService} />
                             </div>
                         </CardHeader>
                         <CardContent>
@@ -55,13 +60,13 @@ export default function SettingsPage() {
                                     </TableRow>
                                 </TableHeader>
                                 <TableBody>
-                                    {serviceOfferings.map((service, index) => (
-                                        <TableRow key={index}>
+                                    {serviceList.map((service) => (
+                                        <TableRow key={service.id}>
                                             <TableCell>
                                                 <DynamicIcon name={service.iconName as IconName} className="h-5 w-5 text-muted-foreground" />
                                             </TableCell>
-                                            <TableCell className="font-medium">{t(service.titleKey)}</TableCell>
-                                            <TableCell className="text-muted-foreground hidden md:table-cell">{t(service.descriptionKey)}</TableCell>
+                                            <TableCell className="font-medium">{service.title}</TableCell>
+                                            <TableCell className="text-muted-foreground hidden md:table-cell">{service.description}</TableCell>
                                             <TableCell className="text-right">
                                                 <DropdownMenu>
                                                     <DropdownMenuTrigger asChild>
