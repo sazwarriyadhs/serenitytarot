@@ -56,7 +56,7 @@ export default function ReadingPage() {
 
     const customer = customers.find(c => c.id === selectedCustomerId);
     const bookingHistory = customer?.bookings.map(b => `${b.date} - ${b.readingType}: ${b.notes}`).join('\n') || 'No previous bookings.';
-    const cardNames = drawnCards.map(c => c!.name).join(', ');
+    const cardNames = drawnCards.map(c => c!.name_en).join(', ');
 
     try {
       const result = await interpretTarotReading({

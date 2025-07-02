@@ -26,6 +26,7 @@ export type Appointment = {
 
 export type TarotCard = {
   name: string;
+  name_en: string;
   imageUrl: string;
   description: string;
 };
