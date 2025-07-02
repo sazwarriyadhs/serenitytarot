@@ -1,3 +1,4 @@
+
 'use client';
 
 import { PageHeader } from "@/components/PageHeader";
@@ -6,12 +7,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { appointments, customers } from "@/lib/data";
-import { DollarSign, Users, ListChecks, Clock } from "lucide-react";
+import { DollarSign, Users, Wallet, Receipt, CalendarCheck } from "lucide-react";
 import Link from 'next/link';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useTranslation } from "react-i18next";
 import { useSettings } from "@/context/SettingsContext";
 import { useMemo } from "react";
+import { format } from "date-fns";
 
 export default function Dashboard() {
   const { t } = useTranslation();
@@ -19,19 +21,37 @@ export default function Dashboard() {
   
   const upcomingAppointments = appointments.filter(a => a.status === 'Upcoming').slice(0, 5);
 
-  const { totalRevenue, totalServicesProvided, totalHoursRead } = useMemo(() => {
+  const { grossRevenue, platformFees, netEarnings, nextPayout } = useMemo(() => {
     const completedAppointments = appointments.filter(a => a.status === 'Completed');
     
-    const revenue = completedAppointments.reduce((sum, app) => sum + app.totalPrice, 0);
-    const services = completedAppointments.reduce((sum, app) => sum + app.services.length, 0);
-    const minutes = completedAppointments.reduce((sum, app) => sum + app.totalDuration, 0);
-    const hours = (minutes / 60).toFixed(1);
+    const gross = completedAppointments.reduce((sum, app) => sum + app.totalPrice, 0);
+    const fees = gross * 0.20;
+    const net = gross * 0.80;
     
+    const now = new Date();
+    const currentMonthAppointments = completedAppointments.filter(app => {
+      const appDate = new Date(app.date);
+      return appDate.getFullYear() === now.getFullYear() && appDate.getMonth() === now.getMonth();
+    });
+    const currentMonthGross = currentMonthAppointments.reduce((sum, app) => sum + app.totalPrice, 0);
+    const payout = currentMonthGross * 0.80;
+
     return {
-      totalRevenue: revenue,
-      totalServicesProvided: services,
-      totalHoursRead: hours,
+      grossRevenue: gross,
+      platformFees: fees,
+      netEarnings: net,
+      nextPayout: payout,
     };
+  }, []);
+  
+  const nextPayoutDate = useMemo(() => {
+    const now = new Date();
+    const payoutDay = 28;
+    let payoutDate = new Date(now.getFullYear(), now.getMonth(), payoutDay);
+    if(now.getDate() > payoutDay) {
+      payoutDate = new Date(now.getFullYear(), now.getMonth() + 1, payoutDay);
+    }
+    return format(payoutDate, 'MMM do, yyyy');
   }, []);
 
   return (
@@ -42,10 +62,10 @@ export default function Dashboard() {
         actions={<Button asChild><Link href="/appointments">{t('dashboard.scheduleAppointment')}</Link></Button>}
       />
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <StatCard title={t('dashboard.totalRevenue')} value={formatCurrency(totalRevenue)} icon={DollarSign} />
-        <StatCard title={t('dashboard.totalClients')} value={`${customers.length}`} icon={Users} />
-        <StatCard title={t('dashboard.totalServicesProvided')} value={`${totalServicesProvided}`} icon={ListChecks} />
-        <StatCard title={t('dashboard.totalHoursRead')} value={`${totalHoursRead} ${t('dashboard.hours')}`} icon={Clock} />
+        <StatCard title={t('dashboard.grossRevenue')} value={formatCurrency(grossRevenue)} icon={DollarSign} />
+        <StatCard title={t('dashboard.platformFees')} value={formatCurrency(platformFees)} icon={Receipt} />
+        <StatCard title={t('dashboard.netEarnings')} value={formatCurrency(netEarnings)} icon={Wallet} />
+        <StatCard title={t('dashboard.nextPayout')} value={formatCurrency(nextPayout)} icon={CalendarCheck} description={`${t('dashboard.payoutOn')} ${nextPayoutDate}`} />
       </div>
       <Card>
         <CardHeader>
