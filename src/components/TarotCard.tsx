@@ -41,9 +41,6 @@ export function TarotCard({ card, isFlipped, className }: TarotCardProps) {
                     className="object-cover h-full w-full"
                     data-ai-hint="tarot card"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 bg-black/50 p-2 text-center text-white">
-                    <p className="font-bold font-headline">{card.name}</p>
-                  </div>
                 </>
               ) : (
                 <div className="h-full w-full bg-muted" />

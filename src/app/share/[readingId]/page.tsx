@@ -59,7 +59,10 @@ export default function ShareReadingPage({ params }: { params: { readingId: stri
               {drawnCards.map((card, index) => (
                 <div key={index} className="flex flex-col items-center gap-2 text-center">
                   <TarotCard card={card} isFlipped={true} />
-                  <span className="font-headline text-sm text-muted-foreground mt-2">{labels[index]}</span>
+                  <div className="mt-2">
+                    <p className="font-headline text-lg">{card.name}</p>
+                    <p className="text-sm text-muted-foreground">{labels[index]}</p>
+                  </div>
                 </div>
               ))}
             </div>

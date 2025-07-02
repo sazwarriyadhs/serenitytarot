@@ -127,15 +127,30 @@ export default function ReadingPage() {
                     <div className="flex flex-wrap items-start justify-center gap-4 md:gap-8">
                         <div className="flex flex-col items-center gap-2 text-center">
                             <TarotCard card={drawnCards[0]} isFlipped={areCardsFlipped} className="w-[120px] h-[210px] sm:w-[160px] sm:h-[280px]" />
-                            {areCardsFlipped && <span className="font-headline text-sm text-muted-foreground mt-2">{t('reading.past')}</span>}
+                            {areCardsFlipped && drawnCards[0] && (
+                                <div className="mt-2">
+                                    <p className="font-headline text-md">{drawnCards[0].name}</p>
+                                    <p className="text-sm text-muted-foreground">{t('reading.past')}</p>
+                                </div>
+                            )}
                         </div>
                         <div className="flex flex-col items-center gap-2 text-center">
                             <TarotCard card={drawnCards[1]} isFlipped={areCardsFlipped} className="w-[120px] h-[210px] sm:w-[160px] sm:h-[280px]" />
-                            {areCardsFlipped && <span className="font-headline text-sm text-muted-foreground mt-2">{t('reading.present')}</span>}
+                             {areCardsFlipped && drawnCards[1] && (
+                                <div className="mt-2">
+                                    <p className="font-headline text-md">{drawnCards[1].name}</p>
+                                    <p className="text-sm text-muted-foreground">{t('reading.present')}</p>
+                                </div>
+                            )}
                         </div>
                         <div className="flex flex-col items-center gap-2 text-center">
                             <TarotCard card={drawnCards[2]} isFlipped={areCardsFlipped} className="w-[120px] h-[210px] sm:w-[160px] sm:h-[280px]" />
-                            {areCardsFlipped && <span className="font-headline text-sm text-muted-foreground mt-2">{t('reading.future')}</span>}
+                            {areCardsFlipped && drawnCards[2] && (
+                                <div className="mt-2">
+                                    <p className="font-headline text-md">{drawnCards[2].name}</p>
+                                    <p className="text-sm text-muted-foreground">{t('reading.future')}</p>
+                                </div>
+                            )}
                         </div>
                     </div>
                     {areCardsFlipped && (
