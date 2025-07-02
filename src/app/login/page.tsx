@@ -60,8 +60,8 @@ export default function LoginPage() {
             <div className="flex items-center justify-center py-12">
                 <div className="mx-auto grid w-[350px] gap-6">
                     <div className="grid gap-2 text-center">
-                        <Link href="/" className="flex justify-center items-center gap-2 mb-4">
-                            <Logo className="size-8 text-primary" />
+                        <Link href="/" className="flex flex-col justify-center items-center gap-4 mb-4">
+                            <Logo className="w-[150px] h-auto" />
                             <h1 className="text-3xl font-bold font-headline">Mystic Agenda</h1>
                         </Link>
                     </div>
