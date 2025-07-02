@@ -1,3 +1,4 @@
+
 export type Booking = {
   id: string;
   date: string;
@@ -36,4 +37,14 @@ export type ServiceOffering = {
   iconName: string;
   title: string;
   description: string;
+};
+
+export type TarotMaster = {
+  id: string;
+  name: string;
+  email: string;
+  avatarUrl: string;
+  bio: string;
+  specialties: string[];
+  experienceYears: number;
 };
