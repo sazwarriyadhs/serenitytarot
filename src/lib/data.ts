@@ -1,19 +1,18 @@
-
 import type { Customer, Appointment, TarotCard, ServiceOffering, TarotMaster } from './types';
 
 // Prices have been increased by 25% to account for a 20% platform fee, ensuring the master's take-home pay remains consistent.
 // New Price = Old Price / (1 - 0.20)
 export const serviceOfferings: ServiceOffering[] = [
-  { id: 's1', iconName: 'Globe', title: 'General Reading', description: 'A broad overview of your current energies. Perfect for clients without a specific question.', price: 63, duration: 30 },
-  { id: 's2', iconName: 'Heart', title: 'Love & Relationship Reading', description: 'Romantic relationships (partner, ex, potential). Love energy, loyalty, relationship future. Suitable for those in new relationships, LDRs, or conflicts.', price: 94, duration: 45 },
-  { id: 's3', iconName: 'Briefcase', title: 'Career & Business Reading', description: 'Career direction, job choices, business opportunities. Suitable for those contemplating resignation, interviews, or promotions.', price: 81, duration: 45 },
-  { id: 's4', iconName: 'Banknote', title: 'Finance Reading', description: 'Financial energy, opportunities for prosperity, expenses, investments. Can be combined with actionable advice.', price: 75, duration: 30 },
-  { id: 's5', iconName: 'HandHeart', title: 'Spiritual & Healing Reading', description: 'Aura, karma, past life, and inner energy readings. Suitable for those needing self-reflection or emotional healing.', price: 113, duration: 60 },
-  { id: 's6', iconName: 'ThumbsUp', title: '"Yes or No" Reading', description: 'A direct answer to one specific question. Quick and simple, suitable for express services.', price: 31, duration: 15 },
-  { id: 's7', iconName: 'CalendarClock', title: 'Time-based Reading', description: 'Weekly, monthly, or yearly energy forecast. Predictions for a specific period.', price: 125, duration: 60 },
-  { id: 's8', iconName: 'Hourglass', title: 'Past-Present-Future Reading', description: 'Highlights the past, current situation, and future predictions.', price: 69, duration: 30 },
-  { id: 's9', iconName: 'Stars', title: 'Soulmate / Twin Flame Reading', description: 'Soul connections, spiritual relationships, destined partners.', price: 100, duration: 45 },
-  { id: 's10', iconName: 'Orbit', title: 'Chakra or Energy Reading', description: 'Assesses the balance of the body\'s energy or chakras.', price: 88, duration: 45 },
+  { id: 's1', iconName: 'Globe', title: 'services.offerings.general_reading.title', description: 'services.offerings.general_reading.description', price: 63, duration: 30 },
+  { id: 's2', iconName: 'Heart', title: 'services.offerings.love_relationship.title', description: 'services.offerings.love_relationship.description', price: 94, duration: 45 },
+  { id: 's3', iconName: 'Briefcase', title: 'services.offerings.career_business.title', description: 'services.offerings.career_business.description', price: 81, duration: 45 },
+  { id: 's4', iconName: 'Banknote', title: 'services.offerings.finance.title', description: 'services.offerings.finance.description', price: 75, duration: 30 },
+  { id: 's5', iconName: 'HandHeart', title: 'services.offerings.spiritual_healing.title', description: 'services.offerings.spiritual_healing.description', price: 113, duration: 60 },
+  { id: 's6', iconName: 'ThumbsUp', title: 'services.offerings.yes_no.title', description: 'services.offerings.yes_no.description', price: 31, duration: 15 },
+  { id: 's7', iconName: 'CalendarClock', title: 'services.offerings.time_based.title', description: 'services.offerings.time_based.description', price: 125, duration: 60 },
+  { id: 's8', iconName: 'Hourglass', title: 'services.offerings.past_present_future.title', description: 'services.offerings.past_present_future.description', price: 69, duration: 30 },
+  { id: 's9', iconName: 'Stars', title: 'services.offerings.soulmate_twin_flame.title', description: 'services.offerings.soulmate_twin_flame.description', price: 100, duration: 45 },
+  { id: 's10', iconName: 'Orbit', title: 'services.offerings.chakra_energy.title', description: 'services.offerings.chakra_energy.description', price: 88, duration: 45 },
 ];
 
 export const customers: Customer[] = [

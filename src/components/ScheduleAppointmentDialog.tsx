@@ -301,7 +301,7 @@ export function ScheduleAppointmentDialog({ onAppointmentScheduled, customers: i
                                     </FormControl>
                                     <div className="w-full">
                                         <FormLabel className="font-normal flex justify-between items-center w-full">
-                                            <span>{item.title}</span>
+                                            <span>{t(item.title)}</span>
                                             <span className="text-sm font-bold">{formatCurrency(item.price)}</span>
                                         </FormLabel>
                                         <FormDescription className="text-xs">
@@ -428,7 +428,7 @@ export function ScheduleAppointmentDialog({ onAppointmentScheduled, customers: i
                   <div>
                     <span className="text-sm text-muted-foreground">{t('appointments.schedule.services')}</span>
                     <ul className="list-disc list-inside font-medium">
-                      {services.filter(s => form.getValues('serviceIds').includes(s.id)).map(s => <li key={s.id}>{s.title}</li>)}
+                      {services.filter(s => form.getValues('serviceIds').includes(s.id)).map(s => <li key={s.id}>{t(s.title)}</li>)}
                     </ul>
                   </div>
                    <div>

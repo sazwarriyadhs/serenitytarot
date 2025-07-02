@@ -23,11 +23,11 @@ export default function ServicesPage() {
               <CardHeader>
                 <CardTitle className="font-headline flex items-center gap-3">
                   <DynamicIcon name={service.iconName as IconName} className="h-6 w-6 text-primary" />
-                  {service.title}
+                  {t(service.title)}
                 </CardTitle>
               </CardHeader>
               <CardContent className="flex-grow">
-                <p className="text-muted-foreground">{service.description}</p>
+                <p className="text-muted-foreground">{t(service.description)}</p>
               </CardContent>
             </Card>
           );

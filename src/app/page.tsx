@@ -137,11 +137,11 @@ export default function LandingPage() {
                             <CardHeader>
                                 <div className="flex items-center gap-4">
                                     <DynamicIcon name={service.iconName as IconName} className="h-8 w-8 text-primary" />
-                                    <CardTitle className="font-headline text-xl">{service.title}</CardTitle>
+                                    <CardTitle className="font-headline text-xl">{t(service.title)}</CardTitle>
                                 </div>
                             </CardHeader>
                             <CardContent>
-                                <p className="text-muted-foreground">{service.description}</p>
+                                <p className="text-muted-foreground">{t(service.description)}</p>
                             </CardContent>
                         </Card>
                     ))}

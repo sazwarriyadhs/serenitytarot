@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -65,8 +66,8 @@ export default function SettingsPage() {
                                             <TableCell>
                                                 <DynamicIcon name={service.iconName as IconName} className="h-5 w-5 text-muted-foreground" />
                                             </TableCell>
-                                            <TableCell className="font-medium">{service.title}</TableCell>
-                                            <TableCell className="text-muted-foreground hidden md:table-cell">{service.description}</TableCell>
+                                            <TableCell className="font-medium">{t(service.title)}</TableCell>
+                                            <TableCell className="text-muted-foreground hidden md:table-cell">{t(service.description)}</TableCell>
                                             <TableCell className="text-right">
                                                 <DropdownMenu>
                                                     <DropdownMenuTrigger asChild>

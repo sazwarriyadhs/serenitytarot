@@ -88,7 +88,7 @@ export default function AppointmentsPage() {
                                                     <div className="p-2 text-sm">
                                                         <p className="font-bold mb-2">{t('appointments.schedule.services')}:</p>
                                                         <ul className="list-disc pl-4">
-                                                            {appointment.services.map(s => <li key={s.id}>{s.title}</li>)}
+                                                            {appointment.services.map(s => <li key={s.id}>{t(s.title)}</li>)}
                                                         </ul>
                                                         <p className="font-bold mt-2">{t('appointments.schedule.total_duration')}: {appointment.totalDuration} {t('appointments.schedule.minutes')}</p>
                                                     </div>
