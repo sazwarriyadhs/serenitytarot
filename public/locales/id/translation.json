@@ -1,10 +1,9 @@
 {
   "mysticAgenda": "Mystic Agenda",
-  "logout": "Keluar",
   "dashboard": {
     "title": "Dasbor",
-    "welcome": "Selamat datang kembali, Peramal!",
-    "description": "Inilah yang terjadi hari ini.",
+    "welcome": "Selamat datang kembali!",
+    "description": "Berikut adalah ringkasan bisnis tarot Anda.",
     "scheduleAppointment": "Jadwalkan Janji Temu",
     "totalRevenue": "Total Pendapatan",
     "totalClients": "Total Klien",
@@ -16,83 +15,112 @@
     "time": "Waktu"
   },
   "appointments": {
-    "title": "Janji Temu"
+    "title": "Janji Temu",
+    "description": "Kelola sesi klien Anda.",
+    "scheduleNew": "Jadwalkan Baru"
   },
   "customers": {
-    "title": "Pelanggan"
+    "title": "Pelanggan",
+    "description": "Lihat dan kelola daftar klien Anda.",
+    "add_button": "Tambah Pelanggan Baru",
+    "roster_title": "Daftar Klien",
+    "table_name": "Nama",
+    "table_email": "Email",
+    "table_join_date": "Tanggal Bergabung",
+    "table_bookings": "Pemesanan",
+    "table_actions": "Aksi",
+    "actions_edit": "Ubah",
+    "actions_view_bookings": "Lihat Pemesanan",
+    "actions_delete": "Hapus",
+    "add": {
+        "title": "Tambah Pelanggan Baru",
+        "description": "Masukkan detail untuk klien baru di bawah ini.",
+        "name_label": "Nama",
+        "name_placeholder": "cth., Budi Santoso",
+        "email_label": "Email",
+        "email_placeholder": "cth., budi.s@example.com",
+        "save_button": "Simpan Pelanggan",
+        "cancel_button": "Batal",
+        "success_toast_title": "Pelanggan Ditambahkan",
+        "success_toast_desc": "Klien baru telah berhasil ditambahkan ke daftar Anda.",
+        "error_invalid_email": "Alamat email tidak valid."
+    }
   },
   "aiReading": {
     "title": "Pembacaan AI"
   },
   "services": {
     "title": "Layanan",
-    "pageDescription": "Jelajahi berbagai layanan pembacaan tarot yang kami tawarkan.",
+    "pageDescription": "Daftar layanan pembacaan tarot yang ditawarkan.",
     "general": {
       "title": "Pembacaan Umum",
-      "description": "Gambaran besar tentang energi Anda saat ini. Cocok untuk klien yang tidak punya pertanyaan spesifik."
+      "description": "Gambaran besar tentang energi saat ini. Cocok untuk klien yang tidak punya pertanyaan spesifik."
     },
     "love": {
-      "title": "Pembacaan Cinta & Hubungan",
-      "description": "Berfokus pada hubungan asmara (pasangan, mantan, calon). Menjelajahi energi cinta, kesetiaan, dan masa depan hubungan."
+      "title": "Pembacaan Asmara & Hubungan",
+      "description": "Hubungan asmara (pasangan, mantan, calon). Energi cinta, kesetiaan, masa depan hubungan. Cocok untuk yang sedang PDKT, LDR, atau konflik."
     },
     "career": {
-      "title": "Pembacaan Karier & Bisnis",
-      "description": "Panduan arah karier, pilihan pekerjaan, dan peluang usaha. Cocok untuk yang sedang galau tentang karier."
+      "title": "Pembacaan Karir & Bisnis",
+      "description": "Arah karier, pilihan pekerjaan, peluang usaha. Cocok untuk yang sedang galau resign, interview, promosi."
     },
     "finance": {
       "title": "Pembacaan Keuangan",
-      "description": "Wawasan tentang energi keuangan Anda, peluang rejeki, pengeluaran, dan investasi. Bisa digabung dengan saran tindakan."
+      "description": "Energi keuangan, peluang rejeki, pengeluaran, investasi. Bisa digabung dengan saran tindakan."
     },
     "spiritual": {
       "title": "Pembacaan Spiritual & Penyembuhan",
-      "description": "Mengkaji aura, karma, masa lalu, dan energi batin Anda. Untuk refleksi diri dan penyembuhan emosional."
+      "description": "Pembacaan aura, karma, masa lalu, energi batin. Cocok untuk yang butuh refleksi diri atau penyembuhan emosional."
     },
     "yesNo": {
       "title": "Pembacaan Ya atau Tidak",
-      "description": "Jawaban langsung untuk satu pertanyaan spesifik. Cepat dan simpel, cocok untuk layanan kilat."
+      "description": "Jawaban langsung untuk 1 pertanyaan spesifik. Cepat dan simpel, cocok untuk layanan express."
     },
     "timeBased": {
       "title": "Pembacaan Berbasis Waktu",
-      "description": "Prakiraan energi untuk mingguan, bulanan, atau tahunan. Lihat apa yang menanti pada periode tertentu."
+      "description": "Energi mingguan, bulanan, atau tahunan. Forecast atau prediksi waktu tertentu."
     },
     "ppf": {
       "title": "Pembacaan Masa Lalu-Kini-Masa Depan",
-      "description": "Menyorot pengaruh dari masa lalu, kondisi saat ini, dan prediksi masa depan."
+      "description": "Menyorot masa lalu, kondisi saat ini, dan prediksi masa depan."
     },
     "soulmate": {
       "title": "Pembacaan Belahan Jiwa / Kembar Api",
-      "description": "Menjelajahi koneksi jiwa, hubungan spiritual, dan pasangan takdir."
+      "description": "Koneksi jiwa, hubungan spiritual, pasangan takdir."
     },
     "chakra": {
       "title": "Pembacaan Cakra atau Energi",
-      "description": "Menilai keseimbangan pusat energi atau cakra tubuh Anda, mengidentifikasi sumbatan dan kekuatan."
+      "description": "Menilai keseimbangan energi atau cakra tubuh."
+    }
+  },
+  "reading": {
+    "title": "Pembacaan AI Baru",
+    "description": "Ambil kartu untuk klien dan hasilkan interpretasi personal dari AI.",
+    "selectClientTitle": "1. Pilih Klien",
+    "selectClientPlaceholder": "Pilih seorang klien...",
+    "drawCardsTitle": "2. Ambil Kartu",
+    "drawCardsButton": "Ambil Tiga Kartu",
+    "spreadTitle": "Tebaran Kartu Anda",
+    "spreadDescription": "Tebaran klasik Masa Lalu, Sekarang, dan Masa Depan.",
+    "getInterpretation": "Dapatkan Interpretasi AI",
+    "interpretationTitle": "Interpretasi AI untuk {{name}}",
+    "loadingMessage": "Para arwah sedang berbisik... mohon tunggu.",
+    "shareButton": "Bagikan Hasil Bacaan",
+    "toast": {
+      "missingInfoTitle": "Informasi Kurang",
+      "missingInfoDesc": "Silakan pilih klien dan ambil kartu terlebih dahulu.",
+      "failedTitle": "Interpretasi Gagal",
+      "failedDesc": "AI tidak dapat memberikan interpretasi. Silakan coba lagi."
     }
   },
   "settings": {
     "title": "Pengaturan",
     "language": "Bahasa",
-    "currency": "Mata Uang",
     "english": "Inggris",
-    "indonesian": "Indonesia"
+    "indonesian": "Indonesia",
+    "currency": "Mata Uang",
+    "usd": "Dolar AS",
+    "idr": "Rupiah Indonesia"
   },
-  "reading": {
-    "title": "Interpretasi Tarot AI",
-    "description": "Hasilkan pembacaan yang dipersonalisasi untuk klien Anda.",
-    "selectClientTitle": "1. Pilih Klien",
-    "selectClientPlaceholder": "Pilih seorang klien...",
-    "drawCardsTitle": "2. Ambil Kartu",
-    "drawCardsButton": "Ambil Tiga Kartu",
-    "spreadTitle": "Tebaran Anda",
-    "spreadDescription": "Masa Lalu, Masa Kini, dan Masa Depan.",
-    "getInterpretation": "Dapatkan Interpretasi AI",
-    "interpretationTitle": "Interpretasi Berbasis AI untuk {{name}}",
-    "loadingMessage": "Para arwah sedang berbisik...",
-    "shareButton": "Bagikan Bacaan",
-    "toast": {
-      "missingInfoTitle": "Informasi Kurang",
-      "missingInfoDesc": "Silakan pilih klien dan ambil kartu terlebih dahulu.",
-      "failedTitle": "Interpretasi Gagal",
-      "failedDesc": "Tidak dapat memperoleh interpretasi dari AI. Silakan coba lagi."
-    }
-  }
+  "logout": "Keluar"
 }

@@ -1,10 +1,9 @@
 {
   "mysticAgenda": "Mystic Agenda",
-  "logout": "Logout",
   "dashboard": {
     "title": "Dashboard",
-    "welcome": "Welcome back, Mystic!",
-    "description": "Here's what's happening today.",
+    "welcome": "Welcome back!",
+    "description": "Here's a summary of your tarot business.",
     "scheduleAppointment": "Schedule Appointment",
     "totalRevenue": "Total Revenue",
     "totalClients": "Total Clients",
@@ -16,83 +15,112 @@
     "time": "Time"
   },
   "appointments": {
-    "title": "Appointments"
+    "title": "Appointments",
+    "description": "Manage your client sessions.",
+    "scheduleNew": "Schedule New"
   },
   "customers": {
-    "title": "Customers"
+    "title": "Customers",
+    "description": "View and manage your client list.",
+    "add_button": "Add New Customer",
+    "roster_title": "Client Roster",
+    "table_name": "Name",
+    "table_email": "Email",
+    "table_join_date": "Join Date",
+    "table_bookings": "Bookings",
+    "table_actions": "Actions",
+    "actions_edit": "Edit",
+    "actions_view_bookings": "View Bookings",
+    "actions_delete": "Delete",
+    "add": {
+        "title": "Add New Customer",
+        "description": "Enter the details for the new client below.",
+        "name_label": "Name",
+        "name_placeholder": "e.g., Jane Doe",
+        "email_label": "Email",
+        "email_placeholder": "e.g., jane.doe@example.com",
+        "save_button": "Save Customer",
+        "cancel_button": "Cancel",
+        "success_toast_title": "Customer Added",
+        "success_toast_desc": "The new client has been successfully added to your roster.",
+        "error_invalid_email": "Invalid email address."
+    }
   },
   "aiReading": {
     "title": "AI Reading"
   },
   "services": {
     "title": "Services",
-    "pageDescription": "Explore the range of tarot readings we offer.",
+    "pageDescription": "A list of the tarot reading services offered.",
     "general": {
       "title": "General Reading",
-      "description": "A broad overview of your current energy. Perfect for when you don't have a specific question."
+      "description": "A big picture overview of the current energies. Suitable for clients without specific questions."
     },
     "love": {
       "title": "Love & Relationship Reading",
-      "description": "Focuses on romantic relationships (partner, ex, potential). Explores energies, loyalty, and future prospects."
+      "description": "Romantic relationships (partner, ex, potential). Love energy, loyalty, future of the relationship. Suitable for those in courtship, LDR, or conflict."
     },
     "career": {
       "title": "Career & Business Reading",
-      "description": "Guidance on career direction, job choices, and business opportunities. Ideal for career transitions."
+      "description": "Career direction, job choices, business opportunities. Suitable for those contemplating resignation, interviews, promotions."
     },
     "finance": {
       "title": "Finance Reading",
-      "description": "Insights into your financial energy, opportunities, expenses, and investments. Can include actionable advice."
+      "description": "Financial energy, fortune opportunities, expenses, investments. Can be combined with actionable advice."
     },
     "spiritual": {
       "title": "Spiritual & Healing Reading",
-      "description": "Examines your aura, karma, past lives, and inner energy. For self-reflection and emotional healing."
+      "description": "Aura, karma, past life, inner energy reading. Suitable for those in need of self-reflection or emotional healing."
     },
     "yesNo": {
       "title": "Yes or No Reading",
-      "description": "A straightforward answer to a single, specific question. Quick, simple, and perfect for express services."
+      "description": "A direct answer to one specific question. Quick and simple, suitable for express services."
     },
     "timeBased": {
       "title": "Time-based Reading",
-      "description": "Energy forecast for the week, month, or year. See what's ahead for a specific period."
+      "description": "Weekly, monthly, or yearly energy. A forecast for a specific period."
     },
     "ppf": {
       "title": "Past-Present-Future Reading",
-      "description": "Highlights influences from your past, your current situation, and a forecast of what's to come."
+      "description": "Highlights the past, current situation, and future predictions."
     },
     "soulmate": {
       "title": "Soulmate / Twin Flame Reading",
-      "description": "Explores soul connections, spiritual relationships, and destined partners."
+      "description": "Soul connections, spiritual relationships, destined partners."
     },
     "chakra": {
       "title": "Chakra or Energy Reading",
-      "description": "Assesses the balance of your body's energy centers or chakras, identifying blockages and strengths."
+      "description": "Assesses the balance of the body's energy or chakras."
     }
   },
-  "settings": {
-    "title": "Settings",
-    "language": "Language",
-    "currency": "Currency",
-    "english": "English",
-    "indonesian": "Indonesian"
-  },
   "reading": {
-    "title": "AI Tarot Interpretation",
-    "description": "Generate a personalized reading for your clients.",
+    "title": "New AI Reading",
+    "description": "Draw cards for a client and generate a personalized, AI-powered interpretation.",
     "selectClientTitle": "1. Select Client",
-    "selectClientPlaceholder": "Choose a client...",
+    "selectClientPlaceholder": "Select a client...",
     "drawCardsTitle": "2. Draw Cards",
     "drawCardsButton": "Draw Three Cards",
     "spreadTitle": "Your Spread",
-    "spreadDescription": "Past, Present, and Future.",
+    "spreadDescription": "The classic Past, Present, and Future spread.",
     "getInterpretation": "Get AI Interpretation",
-    "interpretationTitle": "AI-Powered Interpretation for {{name}}",
-    "loadingMessage": "The spirits are whispering...",
+    "interpretationTitle": "AI Interpretation for {{name}}",
+    "loadingMessage": "The spirits are whispering... please wait.",
     "shareButton": "Share Reading",
     "toast": {
       "missingInfoTitle": "Missing Information",
       "missingInfoDesc": "Please select a client and draw cards first.",
       "failedTitle": "Interpretation Failed",
-      "failedDesc": "Could not get an interpretation from the AI. Please try again."
+      "failedDesc": "The AI could not provide an interpretation. Please try again."
     }
-  }
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "english": "English",
+    "indonesian": "Indonesian",
+    "currency": "Currency",
+    "usd": "US Dollar",
+    "idr": "Indonesian Rupiah"
+  },
+  "logout": "Log Out"
 }
