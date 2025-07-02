@@ -1,4 +1,4 @@
-import type { Customer, Appointment, TarotCard } from './types';
+import type { Customer, Appointment, TarotCard, ServiceOffering } from './types';
 
 export const customers: Customer[] = [
   {
@@ -89,3 +89,16 @@ export const tarotDeck: TarotCard[] = cardData.map(card => ({
     imageUrl: `/images/card/${formatCardNameForImage(card.name)}.png`,
     description: card.description,
 }));
+
+export const serviceOfferings: ServiceOffering[] = [
+  { iconName: 'Globe', titleKey: 'services.general.title', descriptionKey: 'services.general.description' },
+  { iconName: 'Heart', titleKey: 'services.love.title', descriptionKey: 'services.love.description' },
+  { iconName: 'Briefcase', titleKey: 'services.career.title', descriptionKey: 'services.career.description' },
+  { iconName: 'Banknote', titleKey: 'services.finance.title', descriptionKey: 'services.finance.description' },
+  { iconName: 'HandHeart', titleKey: 'services.spiritual.title', descriptionKey: 'services.spiritual.description' },
+  { iconName: 'ThumbsUp', titleKey: 'services.yesNo.title', descriptionKey: 'services.yesNo.description' },
+  { iconName: 'CalendarClock', titleKey: 'services.timeBased.title', descriptionKey: 'services.timeBased.description' },
+  { iconName: 'Hourglass', titleKey: 'services.ppf.title', descriptionKey: 'services.ppf.description' },
+  { iconName: 'Stars', titleKey: 'services.soulmate.title', descriptionKey: 'services.soulmate.description' },
+  { iconName: 'Orbit', titleKey: 'services.chakra.title', descriptionKey: 'services.chakra.description' },
+];

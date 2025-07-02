@@ -26,6 +26,7 @@ import {
   Globe,
   Check,
   BookHeart,
+  Settings,
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useSettings } from '@/context/SettingsContext';
@@ -42,6 +43,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
     { href: '/customers', label: t('customers.title'), icon: Users },
     { href: '/reading', label: t('aiReading.title'), icon: WandSparkles },
     { href: '/services', label: t('services.title'), icon: BookHeart },
+    { href: '/settings', label: t('settings.title'), icon: Settings },
   ];
 
   if (pathname.startsWith('/share/')) {
