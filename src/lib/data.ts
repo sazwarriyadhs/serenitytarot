@@ -102,7 +102,7 @@ const cardData = [
 export const tarotDeck: TarotCard[] = cardData.map(card => ({
     name: card.name_id,
     name_en: card.name,
-    imageUrl: `/images/card/${formatCardNameForImage(card.name)}.png`,
+    imageUrl: `/images/card/${formatCardNameForImage(card.name_id)}.png`,
     description: card.description,
 }));
 
