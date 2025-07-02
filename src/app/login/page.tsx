@@ -41,13 +41,13 @@ export default function LoginPage() {
                  >
                     <CarouselContent className="h-full">
                         <CarouselItem>
-                            <Image src="https://placehold.co/1200x1800.png" alt="Promo 1" width={1200} height={1800} className="h-full w-full object-cover" data-ai-hint="mystical tarot reading" />
+                            <Image src="/images/tarot/login_1.png" alt="Promo 1" width={1200} height={1800} className="h-full w-full object-cover" data-ai-hint="mystical tarot reading" />
                         </CarouselItem>
                         <CarouselItem>
-                           <Image src="https://placehold.co/1200x1800.png" alt="Promo 2" width={1200} height={1800} className="h-full w-full object-cover" data-ai-hint="astrology chart" />
+                           <Image src="/images/tarot/login_2.png" alt="Promo 2" width={1200} height={1800} className="h-full w-full object-cover" data-ai-hint="astrology chart" />
                         </CarouselItem>
                         <CarouselItem>
-                           <Image src="https://placehold.co/1200x1800.png" alt="Promo 3" width={1200} height={1800} className="h-full w-full object-cover" data-ai-hint="crystal ball future" />
+                           <Image src="/images/tarot/login_3.png" alt="Promo 3" width={1200} height={1800} className="h-full w-full object-cover" data-ai-hint="crystal ball future" />
                         </CarouselItem>
                     </CarouselContent>
                 </Carousel>

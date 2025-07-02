@@ -77,13 +77,13 @@ export default function LandingPage() {
             >
               <CarouselContent className="h-full">
                   <CarouselItem>
-                      <Image src="https://placehold.co/1920x1080.png" alt="Mystical Tarot Reading" fill={true} className="object-cover brightness-50" data-ai-hint="mystical tarot reading" />
+                      <Image src="/images/tarot/hero_1.png" alt="Mystical Tarot Reading" fill={true} className="object-cover brightness-50" data-ai-hint="mystical tarot reading" />
                   </CarouselItem>
                   <CarouselItem>
-                      <Image src="https://placehold.co/1920x1080.png" alt="Astrology Chart" fill={true} className="object-cover brightness-50" data-ai-hint="astrology chart" />
+                      <Image src="/images/tarot/hero_2.png" alt="Astrology Chart" fill={true} className="object-cover brightness-50" data-ai-hint="astrology chart" />
                   </CarouselItem>
                   <CarouselItem>
-                      <Image src="https://placehold.co/1920x1080.png" alt="Crystal Ball Future" fill={true} className="object-cover brightness-50" data-ai-hint="crystal ball future" />
+                      <Image src="/images/tarot/hero_3.png" alt="Crystal Ball Future" fill={true} className="object-cover brightness-50" data-ai-hint="crystal ball future" />
                   </CarouselItem>
               </CarouselContent>
           </Carousel>

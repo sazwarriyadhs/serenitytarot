@@ -108,7 +108,7 @@ export const tarotMaster: TarotMaster = {
   id: 'master01',
   name: 'Madame Elena',
   email: 'madame.elena@mysticagenda.com',
-  avatarUrl: 'https://placehold.co/200x200.png',
+  avatarUrl: '/images/tarot/madame_elena.png',
   bio: 'With over 15 years of experience in the mystic arts, Madame Elena specializes in providing clarity and guidance through the ancient wisdom of tarot. Her readings are known for their depth, compassion, and empowering insights, helping clients navigate life\'s challenges and embrace their true potential.',
   specialties: ['Love & Relationship', 'Career & Business', 'Spiritual Healing'],
   experienceYears: 15,
