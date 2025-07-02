@@ -1,10 +1,10 @@
 {
   "mysticAgenda": "Mystic Agenda",
-  "logout": "Log Out",
+  "logout": "Logout",
   "dashboard": {
     "title": "Dashboard",
-    "welcome": "Welcome Back, Madame Elena!",
-    "description": "Here's a summary of your tarot business activities.",
+    "welcome": "Welcome Back!",
+    "description": "Here's a summary of your tarot reading business.",
     "scheduleAppointment": "New Appointment",
     "grossRevenue": "Gross Revenue",
     "platformFees": "Platform Fees",
@@ -18,43 +18,58 @@
   },
   "appointments": {
     "title": "Appointments",
-    "description": "Manage your client bookings and schedule.",
-    "schedule_button": "New Appointment",
+    "description": "Manage your upcoming and past appointments.",
     "table_title": "All Appointments",
     "table_customer": "Customer",
     "table_date": "Date",
     "table_time": "Time",
     "table_price": "Price",
+    "table_payment": "Payment",
     "table_status": "Status",
     "table_actions": "Actions",
     "actions_reschedule": "Reschedule",
     "actions_cancel": "Cancel",
     "calendar_title": "Calendar",
+    "payment_status": {
+      "paid": "Paid",
+      "pending": "Pending"
+    },
+    "status": {
+      "upcoming": "Upcoming",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    },
+    "schedule_button": "Schedule Appointment",
     "schedule": {
       "title": "Schedule a New Appointment",
-      "step1_desc": "Select a client for this appointment.",
-      "step2_desc": "Choose the services for this session.",
-      "step3_desc": "Pick a date and time for the appointment.",
-      "summary_desc": "Please review the details before confirming.",
+      "success_toast_title": "Appointment Scheduled!",
+      "success_toast_desc": "Appointment for {{name}} on {{date}} has been booked.",
+      "step1_desc_new": "Choose an existing client or add a new one.",
+      "step2_desc": "Select one or more services for this appointment.",
+      "step3_desc": "Choose a date and time for the appointment.",
+      "step4_desc": "Confirm the payment status for this booking.",
+      "summary_desc": "Please review the details below before confirming.",
+      "existing_client": "Existing Client",
+      "new_client": "New Client",
       "client": "Client",
       "services": "Services",
       "total_price": "Total Price",
       "total_duration": "Total Duration",
-      "minutes": "minutes",
-      "date_time": "Date & Time",
+      "minutes": "min",
+      "payment_status": "Payment Status",
+      "pending_desc": "Mark as pending if payment will be collected later.",
+      "paid_desc": "Mark as paid if the client has already paid.",
       "summary": "Appointment Summary",
+      "date_time": "Date & Time",
       "button_back": "Back",
       "button_next": "Next",
-      "button_schedule": "Schedule Appointment",
-      "success_toast_title": "Appointment Scheduled!",
-      "success_toast_desc": "Appointment for {{name}} on {{date}} has been booked."
+      "button_schedule": "Schedule"
     }
   },
   "customers": {
     "title": "Customers",
-    "description": "Manage your client roster and view their history.",
-    "add_button": "Add New Customer",
-    "roster_title": "Client Roster",
+    "description": "View and manage your client list.",
+    "roster_title": "Customer Roster",
     "table_name": "Name",
     "table_email": "Email",
     "table_join_date": "Join Date",
@@ -63,76 +78,57 @@
     "actions_edit": "Edit",
     "actions_view_bookings": "View Bookings",
     "actions_delete": "Delete",
+    "add_button": "Add Customer",
     "add": {
       "title": "Add New Customer",
       "description": "Enter the details for the new client.",
       "name_label": "Full Name",
-      "name_placeholder": "Aria Montgomery",
-      "email_label": "Email Address",
-      "email_placeholder": "aria.m@example.com",
-      "save_button": "Save Customer",
+      "name_placeholder": "e.g., Aria Montgomery",
+      "email_label": "Email",
+      "email_placeholder": "e.g., m@example.com",
+      "error_invalid_email": "Please enter a valid email.",
       "cancel_button": "Cancel",
+      "save_button": "Save Customer",
       "success_toast_title": "Customer Added",
-      "success_toast_desc": "The new client has been added to your roster.",
-      "error_invalid_email": "Please enter a valid email address."
+      "success_toast_desc": "The new customer has been successfully added."
     }
   },
   "aiReading": {
     "title": "AI Reading"
   },
   "reading": {
-    "title": "AI Reading Session",
-    "description": "Start a new tarot reading session for a client.",
-    "selectClientTitle": "1. Select Client",
-    "selectClientPlaceholder": "Select a client...",
+    "title": "AI-Powered Reading",
+    "description": "Draw cards and generate a personalized interpretation.",
+    "selectClientTitle": "1. Select a Client",
+    "selectClientPlaceholder": "Choose a client...",
     "drawCardsTitle": "2. Draw Cards",
-    "drawCardsButton": "Draw 3 Cards",
-    "spreadTitle": "Your 3-Card Spread",
-    "spreadDescription": "The cards represent past, present, and future.",
-    "getInterpretation": "Get AI Interpretation",
-    "interpretationTitle": "AI Interpretation for {{name}}",
-    "loadingMessage": "The spirits are whispering... Please wait.",
-    "shareButton": "Share Reading",
-    "toast": {
-      "missingInfoTitle": "Incomplete Information",
-      "missingInfoDesc": "Please select a client and draw cards first.",
-      "failedTitle": "Interpretation Failed",
-      "failedDesc": "The connection to the ethereal plane was lost. Please try again."
-    },
+    "drawCardsButton": "Draw Three Cards",
+    "spreadTitle": "Your Three-Card Spread",
+    "spreadDescription": "The cards represent the Past, Present, and Future.",
     "past": "Past",
     "present": "Present",
-    "future": "Future"
+    "future": "Future",
+    "getInterpretation": "Get Interpretation",
+    "toast": {
+      "missingInfoTitle": "Missing Information",
+      "missingInfoDesc": "Please select a client and draw cards first.",
+      "failedTitle": "Interpretation Failed",
+      "failedDesc": "There was an error generating the interpretation. Please try again."
+    },
+    "interpretationTitle": "Interpretation for {{name}}",
+    "loadingMessage": "Generating your personalized reading...",
+    "shareButton": "Share Reading"
   },
   "services": {
     "title": "Services",
-    "pageDescription": "An overview of the tarot reading services you offer.",
-    "title_general": "General Reading",
-    "desc_general": "A broad overview of your current energies. Perfect for clients without a specific question.",
-    "title_love": "Love & Relationship Reading",
-    "desc_love": "Romantic relationships (partner, ex, potential). Love energy, loyalty, relationship future. Suitable for those in new relationships, LDRs, or conflicts.",
-    "title_career": "Career & Business Reading",
-    "desc_career": "Career direction, job choices, business opportunities. Suitable for those contemplating resignation, interviews, or promotions.",
-    "title_finance": "Finance Reading",
-    "desc_finance": "Financial energy, opportunities for prosperity, expenses, investments. Can be combined with actionable advice.",
-    "title_spiritual": "Spiritual & Healing Reading",
-    "desc_spiritual": "Aura, karma, past life, and inner energy readings. Suitable for those needing self-reflection or emotional healing.",
-    "title_yesno": "\"Yes or No\" Reading",
-    "desc_yesno": "A direct answer to one specific question. Quick and simple, suitable for express services.",
-    "title_timed": "Time-based Reading",
-    "desc_timed": "Weekly, monthly, or yearly energy forecast. Predictions for a specific period.",
-    "title_ppf": "Past-Present-Future Reading",
-    "desc_ppf": "Highlights the past, current situation, and future predictions.",
-    "title_soulmate": "Soulmate / Twin Flame Reading",
-    "desc_soulmate": "Soul connections, spiritual relationships, destined partners.",
-    "title_chakra": "Chakra or Energy Reading",
-    "desc_chakra": "Assesses the balance of the body's energy or chakras."
+    "pageDescription": "A list of all tarot reading services you offer."
   },
   "pricing": {
     "title": "Price List",
-    "description": "A general price list for tarot reading services in Indonesia.",
-    "table_title": "Service Price List",
-    "table_description": "Prices are estimates and may vary based on the factors below.",
-    "table_service": "Service",
+    "description": "Overview of service pricing and factors.",
+    "table_title": "Tarot Service Price List",
+    "table_description": "The following are the price ranges for various tarot reading services in Indonesia as of July 2025.",
+    "table_service": "Service Type",
     "table_duration": "Duration",
     "table_price": "Price Range",
     "services": {
@@ -148,35 +144,31 @@
     },
     "factors_title": "Factors Affecting Price",
     "factors": {
-      "experience": "Experience: The more famous or experienced the reader, the higher the rate.",
+      "experience": "Experience: More well-known or experienced readers may have higher rates.",
       "media": "Consultation Media: Offline (face-to-face) readings are usually more expensive.",
-      "complexity": "Number of Questions/Spreads: The more complex, the higher the price."
+      "complexity": "Number of questions / spreads: The more complex, the higher the price."
     }
   },
   "profile": {
     "title": "My Profile",
-    "description": "View and manage your public tarot master profile.",
+    "description": "Manage your public profile information.",
     "edit": "Edit Profile",
-    "contact": "Contact Information",
+    "contact": "Contact",
     "experience": "years of experience",
     "aboutMe": "About Me",
-    "specialties": "My Specialties"
+    "specialties": "Specialties"
   },
   "settings": {
     "title": "Settings",
     "description": "Configure your application and service settings.",
-    "language": "Language",
-    "english": "English",
-    "indonesian": "Indonesian",
-    "currency": "Currency",
     "tabs": {
       "specializations": "Specializations",
-      "durations": "Durations & Pricing",
-      "payment": "Payment Gateways"
+      "durations": "Durations",
+      "payment": "Payment"
     },
     "specializations": {
-      "title": "Service Specializations",
-      "description": "Manage the types of readings you offer to clients.",
+      "title": "Service Offerings",
+      "description": "Manage the types of readings you offer.",
       "addNew": "Add New Service",
       "table": {
         "service": "Service",
@@ -185,12 +177,31 @@
       }
     },
     "durations": {
-      "title": "Session Durations & Pricing",
-      "description": "Define the available session lengths and their corresponding prices."
+      "title": "Durations & Pricing",
+      "description": "Set the duration and pricing tiers for your services."
     },
     "payment": {
-      "title": "Payment Settings",
-      "description": "Manage the payment methods available to your clients."
-    }
+      "title": "Payment Methods",
+      "description": "Configure the payment methods you accept."
+    },
+    "language": "Language",
+    "english": "English",
+    "indonesian": "Indonesian",
+    "currency": "Currency"
+  },
+  "landing": {
+    "bookNow": "Book a Reading",
+    "heroTitle": "Discover Your Path, Embrace Your Future.",
+    "heroSubtitle": "Receive clear, compassionate, and empowering tarot readings from a trusted master to navigate your life's journey with confidence.",
+    "getReading": "Get Your Reading Now",
+    "aboutTitle": "Meet Your Guide, {{name}}",
+    "aboutText": "With over 15 years of experience in the mystic arts, Madame Elena specializes in providing clarity and guidance through the ancient wisdom of tarot. Her readings are known for their depth, compassion, and empowering insights.",
+    "learnMore": "Learn More About Her",
+    "servicesTitle": "Guidance for Every Question",
+    "servicesSubtitle": "Whether you're seeking answers about love, career, or your spiritual path, we have a reading tailored for you.",
+    "viewAllServices": "View All Services",
+    "testimonialsTitle": "Words from Our Community",
+    "testimonialsSubtitle": "See how Mystic Agenda has helped others find clarity and direction.",
+    "footerRights": "All rights reserved."
   }
 }

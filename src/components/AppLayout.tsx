@@ -40,7 +40,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
   const { currency, setCurrency, language, setLanguage } = useSettings();
 
   const menuItems = [
-    { href: '/', label: t('dashboard.title'), icon: LayoutDashboard },
+    { href: '/dashboard', label: t('dashboard.title'), icon: LayoutDashboard },
     { href: '/appointments', label: t('appointments.title'), icon: Calendar },
     { href: '/customers', label: t('customers.title'), icon: Users },
     { href: '/reading', label: t('aiReading.title'), icon: WandSparkles },
@@ -50,7 +50,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
     { href: '/settings', label: t('settings.title'), icon: Settings },
   ];
 
-  if (pathname.startsWith('/share/') || pathname === '/login') {
+  if (pathname === '/' || pathname.startsWith('/share/') || pathname === '/login') {
     return <>{children}</>;
   }
 
