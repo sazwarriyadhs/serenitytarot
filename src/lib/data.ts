@@ -62,12 +62,12 @@ export const customers: Customer[] = [
 ];
 
 export const appointments: Appointment[] = [
-  { id: 'app1', customerId: '1', customerName: 'Aria Montgomery', customerAvatarUrl: 'https://placehold.co/100x100.png', date: '2024-07-25', time: '10:00 AM', status: 'Upcoming', services: [serviceOfferings[0]], totalPrice: 63, totalDuration: 30 },
-  { id: 'app2', customerId: '2', customerName: 'Spencer Hastings', customerAvatarUrl: 'https://placehold.co/100x100.png', date: '2024-07-25', time: '02:00 PM', status: 'Upcoming', services: [serviceOfferings[1], serviceOfferings[5]], totalPrice: 125, totalDuration: 60 },
-  { id: 'app3', customerId: '3', customerName: 'Hanna Marin', customerAvatarUrl: 'https://placehold.co/100x100.png', date: '2024-07-26', time: '11:00 AM', status: 'Upcoming', services: [serviceOfferings[2]], totalPrice: 81, totalDuration: 45 },
-  { id: 'app4', customerId: '4', customerName: 'Emily Fields', customerAvatarUrl: 'https://placehold.co/100x100.png', date: '2024-07-22', time: '03:00 PM', status: 'Completed', services: [serviceOfferings[4]], totalPrice: 113, totalDuration: 60 },
-  { id: 'app5', customerId: '1', customerName: 'Aria Montgomery', customerAvatarUrl: 'https://placehold.co/100x100.png', date: '2024-07-20', time: '09:00 AM', status: 'Completed', services: [serviceOfferings[0], serviceOfferings[3]], totalPrice: 138, totalDuration: 60 },
-  { id: 'app6', customerId: '2', customerName: 'Spencer Hastings', customerAvatarUrl: 'https://placehold.co/100x100.png', date: '2024-07-15', time: '01:00 PM', status: 'Cancelled', services: [serviceOfferings[8]], totalPrice: 100, totalDuration: 45 },
+  { id: 'app1', customerId: '1', customerName: 'Aria Montgomery', customerAvatarUrl: 'https://placehold.co/100x100.png', date: '2024-07-25', time: '10:00 AM', status: 'Upcoming', services: [serviceOfferings[0]], totalPrice: 63, totalDuration: 30, paymentStatus: 'Pending' },
+  { id: 'app2', customerId: '2', customerName: 'Spencer Hastings', customerAvatarUrl: 'https://placehold.co/100x100.png', date: '2024-07-25', time: '02:00 PM', status: 'Upcoming', services: [serviceOfferings[1], serviceOfferings[5]], totalPrice: 125, totalDuration: 60, paymentStatus: 'Pending' },
+  { id: 'app3', customerId: '3', customerName: 'Hanna Marin', customerAvatarUrl: 'https://placehold.co/100x100.png', date: '2024-07-26', time: '11:00 AM', status: 'Upcoming', services: [serviceOfferings[2]], totalPrice: 81, totalDuration: 45, paymentStatus: 'Paid' },
+  { id: 'app4', customerId: '4', customerName: 'Emily Fields', customerAvatarUrl: 'https://placehold.co/100x100.png', date: '2024-07-22', time: '03:00 PM', status: 'Completed', services: [serviceOfferings[4]], totalPrice: 113, totalDuration: 60, paymentStatus: 'Paid' },
+  { id: 'app5', customerId: '1', customerName: 'Aria Montgomery', customerAvatarUrl: 'https://placehold.co/100x100.png', date: '2024-07-20', time: '09:00 AM', status: 'Completed', services: [serviceOfferings[0], serviceOfferings[3]], totalPrice: 138, totalDuration: 60, paymentStatus: 'Paid' },
+  { id: 'app6', customerId: '2', customerName: 'Spencer Hastings', customerAvatarUrl: 'https://placehold.co/100x100.png', date: '2024-07-15', time: '01:00 PM', status: 'Cancelled', services: [serviceOfferings[8]], totalPrice: 100, totalDuration: 45, paymentStatus: 'Pending' },
 ];
 
 const cardData = [
@@ -113,7 +113,3 @@ export const tarotMaster: TarotMaster = {
   specialties: ['Love & Relationship', 'Career & Business', 'Spiritual Healing'],
   experienceYears: 15,
 };
-
-    
-
-    

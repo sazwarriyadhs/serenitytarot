@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -10,7 +11,7 @@ import { appointments as initialAppointments, customers, serviceOfferings } from
 import type { Appointment } from "@/lib/types";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
-import { MoreHorizontal, Info } from "lucide-react";
+import { MoreHorizontal, Info, CreditCard } from "lucide-react";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useTranslation } from "react-i18next";
@@ -53,6 +54,7 @@ export default function AppointmentsPage() {
                                 <TableHead>{t('appointments.table_customer')}</TableHead>
                                 <TableHead>{t('appointments.table_date')}</TableHead>
                                 <TableHead>{t('appointments.table_price')}</TableHead>
+                                <TableHead>{t('appointments.table_payment')}</TableHead>
                                 <TableHead>{t('appointments.table_status')}</TableHead>
                                 <TableHead>
                                     <span className="sr-only">{t('appointments.table_actions')}</span>
@@ -95,13 +97,23 @@ export default function AppointmentsPage() {
                                         </div>
                                     </TableCell>
                                     <TableCell>
+                                        <Badge variant={appointment.paymentStatus === 'Paid' ? 'secondary' : 'default'}
+                                          className={cn(
+                                            appointment.paymentStatus === 'Paid' && 'bg-green-500/20 text-green-700 dark:bg-green-500/20 dark:text-green-400 border-green-500/20',
+                                            appointment.paymentStatus === 'Pending' && 'bg-yellow-500/20 text-yellow-700 dark:bg-yellow-500/20 dark:text-yellow-400 border-yellow-500/20',
+                                          )}>
+                                          <CreditCard className="mr-1 h-3 w-3" />
+                                          {t(`appointments.payment_status.${appointment.paymentStatus.toLowerCase()}`)}
+                                        </Badge>
+                                    </TableCell>
+                                    <TableCell>
                                         <Badge variant={appointment.status === 'Upcoming' ? 'default' : appointment.status === 'Completed' ? 'secondary' : 'destructive'} 
                                             className={cn(
                                                 appointment.status === 'Upcoming' && 'bg-blue-500/20 text-blue-700 dark:bg-blue-500/20 dark:text-blue-400 border-blue-500/20',
                                                 appointment.status === 'Completed' && 'bg-green-500/20 text-green-700 dark:bg-green-500/20 dark:text-green-400 border-green-500/20',
                                                 appointment.status === 'Cancelled' && 'bg-red-500/20 text-red-700 dark:bg-red-500/20 dark:text-red-400 border-red-500/20'
                                             )}>
-                                            {appointment.status}
+                                            {t(`appointments.status.${appointment.status.toLowerCase()}`)}
                                         </Badge>
                                     </TableCell>
                                     <TableCell>

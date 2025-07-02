@@ -32,15 +32,18 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Checkbox } from '@/components/ui/checkbox';
 import { Calendar } from '@/components/ui/calendar';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
 import type { Customer, ServiceOffering, Appointment } from '@/lib/types';
-import { PlusCircle, ArrowRight, ArrowLeft, Calendar as CalendarIcon, Clock } from 'lucide-react';
+import { PlusCircle, ArrowRight, ArrowLeft, Calendar as CalendarIcon, Clock, CreditCard } from 'lucide-react';
 import { Card, CardContent } from './ui/card';
 import { useSettings } from '@/context/SettingsContext';
 import { format } from 'date-fns';
+import { customers } from '@/lib/data';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 interface ScheduleAppointmentDialogProps {
   onAppointmentScheduled: (newAppointment: Appointment) => void;
@@ -49,25 +52,28 @@ interface ScheduleAppointmentDialogProps {
 }
 
 const formSchema = z.object({
-  customerId: z.string({ required_error: 'Please select a client.' }),
-  serviceIds: z.array(z.string()).refine((value) => value.some((item) => item), {
-    message: "You have to select at least one service.",
-  }),
+  customerId: z.string().optional(),
+  newClientName: z.string().min(2, "Name must be at least 2 characters.").optional(),
+  newClientEmail: z.string().email("Please enter a valid email.").optional(),
+  serviceIds: z.array(z.string()).min(1, { message: "You have to select at least one service." }),
   date: z.date({ required_error: 'A date is required.' }),
   time: z.string({ required_error: 'A time is required.' }),
+  paymentStatus: z.enum(['Pending', 'Paid'], { required_error: 'Please select a payment status.' }),
 });
 
-export function ScheduleAppointmentDialog({ onAppointmentScheduled, customers, services }: ScheduleAppointmentDialogProps) {
+export function ScheduleAppointmentDialog({ onAppointmentScheduled, customers: initialCustomers, services }: ScheduleAppointmentDialogProps) {
   const { t } = useTranslation();
   const { formatCurrency } = useSettings();
   const [isOpen, setIsOpen] = useState(false);
   const [step, setStep] = useState(1);
+  const [clientType, setClientType] = useState<'existing' | 'new'>('existing');
   const { toast } = useToast();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       serviceIds: [],
+      paymentStatus: 'Pending',
     },
   });
 
@@ -82,41 +88,75 @@ export function ScheduleAppointmentDialog({ onAppointmentScheduled, customers, s
 
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    const selectedCustomer = customers.find(c => c.id === values.customerId);
-    const selectedServices = services.filter(s => values.serviceIds.includes(s.id));
+    let customer: Customer;
 
-    if (!selectedCustomer) return;
+    if (clientType === 'new') {
+        const newCustomer: Customer = {
+            id: Date.now().toString(),
+            name: values.newClientName!,
+            email: values.newClientEmail!,
+            joinDate: new Date().toISOString().split('T')[0],
+            avatarUrl: `https://placehold.co/100x100.png`,
+            bookings: [],
+        };
+        customers.push(newCustomer);
+        customer = newCustomer;
+    } else {
+        const foundCustomer = initialCustomers.find(c => c.id === values.customerId);
+        if (!foundCustomer) {
+            toast({ variant: "destructive", title: "Error", description: "Selected client not found."});
+            return;
+        }
+        customer = foundCustomer;
+    }
+    
+    const selectedServices = services.filter(s => values.serviceIds.includes(s.id));
 
     const newAppointment: Appointment = {
       id: `app${Date.now()}`,
-      customerId: selectedCustomer.id,
-      customerName: selectedCustomer.name,
-      customerAvatarUrl: selectedCustomer.avatarUrl,
+      customerId: customer.id,
+      customerName: customer.name,
+      customerAvatarUrl: customer.avatarUrl,
       date: format(values.date, 'yyyy-MM-dd'),
       time: values.time,
       status: 'Upcoming',
       services: selectedServices,
       totalPrice: totalPrice,
       totalDuration: totalDuration,
+      paymentStatus: values.paymentStatus,
     };
     
     onAppointmentScheduled(newAppointment);
     toast({
       title: t('appointments.schedule.success_toast_title'),
-      description: t('appointments.schedule.success_toast_desc', { name: selectedCustomer.name, date: format(values.date, 'PPP') }),
+      description: t('appointments.schedule.success_toast_desc', { name: customer.name, date: format(values.date, 'PPP') }),
     });
     setIsOpen(false);
     form.reset();
     setStep(1);
+    setClientType('existing');
   }
 
   const handleNext = async () => {
     let isValid = false;
     if (step === 1) {
-      isValid = await form.trigger("customerId");
+      if (clientType === 'existing') {
+        isValid = await form.trigger("customerId");
+        if (!form.getValues('customerId')) {
+          form.setError('customerId', { type: 'manual', message: 'Please select an existing client.'});
+          isValid = false;
+        }
+      } else {
+        isValid = await form.trigger(["newClientName", "newClientEmail"]);
+      }
     } else if (step === 2) {
       isValid = await form.trigger("serviceIds");
+    } else if (step === 3) {
+      isValid = await form.trigger(["date", "time"]);
+    } else if (step === 4) {
+      isValid = await form.trigger("paymentStatus");
     }
+
     if (isValid) {
       setStep(s => s + 1);
     }
@@ -126,11 +166,23 @@ export function ScheduleAppointmentDialog({ onAppointmentScheduled, customers, s
     setStep(s => s - 1);
   };
 
+  const getDialogDescription = () => {
+    switch(step) {
+      case 1: return t('appointments.schedule.step1_desc_new');
+      case 2: return t('appointments.schedule.step2_desc');
+      case 3: return t('appointments.schedule.step3_desc');
+      case 4: return t('appointments.schedule.step4_desc');
+      case 5: return t('appointments.schedule.summary_desc');
+      default: return '';
+    }
+  }
+
   return (
     <Dialog open={isOpen} onOpenChange={(open) => {
         if (!open) {
             form.reset();
             setStep(1);
+            setClientType('existing');
         }
         setIsOpen(open);
     }}>
@@ -144,38 +196,67 @@ export function ScheduleAppointmentDialog({ onAppointmentScheduled, customers, s
         <DialogHeader>
           <DialogTitle className="font-headline">{t('appointments.schedule.title')}</DialogTitle>
           <DialogDescription>
-            {step === 1 && t('appointments.schedule.step1_desc')}
-            {step === 2 && t('appointments.schedule.step2_desc')}
-            {step === 3 && t('appointments.schedule.step3_desc')}
-            {step === 4 && t('appointments.schedule.summary_desc')}
+            {getDialogDescription()}
           </DialogDescription>
         </DialogHeader>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
             {step === 1 && (
               <Card className="p-6">
-                <FormField
-                  control={form.control}
-                  name="customerId"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{t('appointments.schedule.client')}</FormLabel>
-                      <Select onValueChange={field.onChange} defaultValue={field.value}>
-                        <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder={t('reading.selectClientPlaceholder')} />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          {customers.map(customer => (
-                            <SelectItem key={customer.id} value={customer.id}>{customer.name}</SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                <Tabs defaultValue={clientType} onValueChange={(value) => setClientType(value as 'existing' | 'new')}>
+                  <TabsList className="grid w-full grid-cols-2">
+                    <TabsTrigger value="existing">{t('appointments.schedule.existing_client')}</TabsTrigger>
+                    <TabsTrigger value="new">{t('appointments.schedule.new_client')}</TabsTrigger>
+                  </TabsList>
+                  <TabsContent value="existing" className="pt-4">
+                    <FormField
+                      control={form.control}
+                      name="customerId"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>{t('appointments.schedule.client')}</FormLabel>
+                          <Select onValueChange={field.onChange} defaultValue={field.value}>
+                            <FormControl>
+                              <SelectTrigger>
+                                <SelectValue placeholder={t('reading.selectClientPlaceholder')} />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              {initialCustomers.map(customer => (
+                                <SelectItem key={customer.id} value={customer.id}>{customer.name}</SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </TabsContent>
+                  <TabsContent value="new" className="pt-4 space-y-4">
+                     <FormField
+                        control={form.control}
+                        name="newClientName"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>{t('customers.add.name_label')}</FormLabel>
+                            <FormControl><Input placeholder={t('customers.add.name_placeholder')} {...field} /></FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="newClientEmail"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>{t('customers.add.email_label')}</FormLabel>
+                            <FormControl><Input placeholder={t('customers.add.email_placeholder')} {...field} /></FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                  </TabsContent>
+                </Tabs>
               </Card>
             )}
 
@@ -292,12 +373,53 @@ export function ScheduleAppointmentDialog({ onAppointmentScheduled, customers, s
             )}
 
             {step === 4 && (
+              <Card className="p-6">
+                <FormField
+                  control={form.control}
+                  name="paymentStatus"
+                  render={({ field }) => (
+                    <FormItem className="space-y-3">
+                      <FormLabel className="text-base font-semibold flex items-center"><CreditCard className="mr-2 h-4 w-4" />{t('appointments.schedule.payment_status')}</FormLabel>
+                      <FormControl>
+                        <RadioGroup
+                          onValueChange={field.onChange}
+                          defaultValue={field.value}
+                          className="flex flex-col space-y-1"
+                        >
+                          <FormItem className="flex items-center space-x-3 space-y-0 rounded-md border p-4">
+                            <FormControl>
+                              <RadioGroupItem value="Pending" id="payment-pending" />
+                            </FormControl>
+                            <FormLabel htmlFor="payment-pending" className="font-normal w-full">
+                                {t('appointments.payment_status.pending')}
+                                <FormDescription>{t('appointments.schedule.pending_desc')}</FormDescription>
+                            </FormLabel>
+                          </FormItem>
+                          <FormItem className="flex items-center space-x-3 space-y-0 rounded-md border p-4">
+                            <FormControl>
+                              <RadioGroupItem value="Paid" id="payment-paid"/>
+                            </FormControl>
+                            <FormLabel htmlFor="payment-paid" className="font-normal w-full">
+                                {t('appointments.payment_status.paid')}
+                                 <FormDescription>{t('appointments.schedule.paid_desc')}</FormDescription>
+                            </FormLabel>
+                          </FormItem>
+                        </RadioGroup>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </Card>
+            )}
+
+            {step === 5 && (
               <Card>
                 <CardContent className="p-6 space-y-4">
                   <h3 className="font-headline text-lg">{t('appointments.schedule.summary')}</h3>
                   <div>
                     <span className="text-sm text-muted-foreground">{t('appointments.schedule.client')}</span>
-                    <p className="font-medium">{customers.find(c => c.id === form.getValues('customerId'))?.name}</p>
+                    <p className="font-medium">{clientType === 'new' ? form.getValues('newClientName') : initialCustomers.find(c => c.id === form.getValues('customerId'))?.name}</p>
                   </div>
                   <div>
                     <span className="text-sm text-muted-foreground">{t('appointments.schedule.date_time')}</span>
@@ -308,6 +430,10 @@ export function ScheduleAppointmentDialog({ onAppointmentScheduled, customers, s
                     <ul className="list-disc list-inside font-medium">
                       {services.filter(s => form.getValues('serviceIds').includes(s.id)).map(s => <li key={s.id}>{s.title}</li>)}
                     </ul>
+                  </div>
+                   <div>
+                    <span className="text-sm text-muted-foreground">{t('appointments.schedule.payment_status')}</span>
+                    <p className="font-medium">{t(`appointments.payment_status.${form.getValues('paymentStatus').toLowerCase()}`)}</p>
                   </div>
                   <div className="mt-4 pt-4 border-t">
                     <div className="flex justify-between font-bold text-lg">
@@ -324,9 +450,9 @@ export function ScheduleAppointmentDialog({ onAppointmentScheduled, customers, s
             )}
 
             <DialogFooter className="pt-4">
-              {step > 1 && <Button type="button" variant="outline" onClick={handleBack}><ArrowLeft /> {t('appointments.schedule.button_back')}</Button>}
-              {step < 4 && <Button type="button" onClick={handleNext}>{t('appointments.schedule.button_next')} <ArrowRight /></Button>}
-              {step === 4 && <Button type="submit">{t('appointments.schedule.button_schedule')}</Button>}
+              {step > 1 && <Button type="button" variant="outline" onClick={handleBack}><ArrowLeft className="mr-2" /> {t('appointments.schedule.button_back')}</Button>}
+              {step < 5 && <Button type="button" onClick={handleNext}>{t('appointments.schedule.button_next')} <ArrowRight className="ml-2" /></Button>}
+              {step === 5 && <Button type="submit">{t('appointments.schedule.button_schedule')}</Button>}
             </DialogFooter>
           </form>
         </Form>

@@ -16,7 +16,7 @@ export type Customer = {
 };
 
 export type Appointment = {
-  id: string;
+  id:string;
   customerId: string;
   customerName: string;
   customerAvatarUrl: string;
@@ -26,6 +26,7 @@ export type Appointment = {
   services: ServiceOffering[];
   totalPrice: number;
   totalDuration: number; // in minutes
+  paymentStatus: 'Paid' | 'Pending';
 };
 
 export type TarotCard = {
