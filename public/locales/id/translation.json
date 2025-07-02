@@ -1,178 +1,173 @@
 {
-    "mysticAgenda": "Mistik Agenda",
-    "logout": "Keluar",
-    "dashboard": {
-      "title": "Dasbor",
-      "welcome": "Selamat Datang Kembali, Master Tarot",
-      "description": "Berikut adalah ringkasan aktivitas pembacaan tarot Anda.",
-      "scheduleAppointment": "Janji Temu Baru",
-      "totalRevenue": "Total Pendapatan",
-      "grossRevenue": "Pendapatan Kotor",
-      "platformFees": "Biaya Platform",
-      "netEarnings": "Penghasilan Bersih",
-      "nextPayout": "Pembayaran Berikutnya",
-      "payoutOn": "pembayaran pada",
-      "totalClients": "Total Klien",
-      "totalServicesProvided": "Total Layanan Diberikan",
-      "totalHoursRead": "Total Jam Membaca",
-      "hours": "jam",
-      "upcomingAppointments": "Janji Temu Mendatang",
-      "customer": "Pelanggan",
-      "date": "Tanggal",
-      "time": "Waktu"
-    },
-    "appointments": {
-      "title": "Janji Temu",
-      "description": "Kelola semua janji temu klien Anda di satu tempat.",
-      "schedule_button": "Jadwalkan Baru",
-      "table_title": "Daftar Janji Temu",
-      "table_customer": "Pelanggan",
-      "table_date": "Tanggal",
-      "table_price": "Harga",
-      "table_time": "Waktu",
-      "table_status": "Status",
-      "table_actions": "Aksi",
-      "actions_reschedule": "Jadwal Ulang",
-      "actions_cancel": "Batalkan",
-      "calendar_title": "Kalender",
-      "schedule": {
-        "title": "Jadwalkan Janji Temu Baru",
-        "step1_desc": "Pilih klien untuk janji temu.",
-        "step2_desc": "Pilih satu atau lebih layanan untuk sesi ini.",
-        "step3_desc": "Pilih tanggal dan waktu untuk janji temu.",
-        "summary_desc": "Tinjau detail sebelum mengkonfirmasi janji temu.",
-        "client": "Klien",
-        "services": "Layanan",
-        "total_price": "Total Harga",
-        "total_duration": "Total Durasi",
-        "minutes": "menit",
-        "date_time": "Tanggal & Waktu",
-        "summary": "Ringkasan Janji Temu",
-        "button_back": "Kembali",
-        "button_next": "Lanjut",
-        "button_schedule": "Jadwalkan Janji Temu",
-        "success_toast_title": "Janji Temu Dibuat!",
-        "success_toast_desc": "Janji temu untuk {{name}} pada {{date}} telah dipesan."
-      }
-    },
-    "customers": {
-      "title": "Pelanggan",
-      "description": "Lihat dan kelola daftar klien Anda.",
-      "roster_title": "Daftar Klien",
-      "table_name": "Nama",
-      "table_email": "Email",
-      "table_join_date": "Tanggal Bergabung",
-      "table_bookings": "Pesanan",
-      "table_actions": "Aksi",
-      "actions_edit": "Ubah",
-      "actions_view_bookings": "Lihat Pesanan",
-      "actions_delete": "Hapus",
-      "add_button": "Pelanggan Baru",
-      "add": {
-        "title": "Tambah Pelanggan Baru",
-        "description": "Masukkan detail untuk pelanggan baru.",
-        "name_label": "Nama",
-        "name_placeholder": "contoh: Jane Doe",
-        "email_label": "Email",
-        "email_placeholder": "contoh: jane.doe@example.com",
-        "error_invalid_email": "Harap masukkan alamat email yang valid.",
-        "cancel_button": "Batal",
-        "save_button": "Simpan Pelanggan",
-        "success_toast_title": "Pelanggan Ditambahkan!",
-        "success_toast_desc": "Pelanggan baru telah berhasil ditambahkan."
-      }
-    },
-    "aiReading": {
-        "title": "Pembacaan AI"
-    },
-    "reading": {
-      "title": "Pembacaan AI Baru",
-      "description": "Mulai sesi pembacaan tarot baru yang didukung oleh AI.",
-      "selectClientTitle": "1. Pilih Klien",
-      "selectClientPlaceholder": "Pilih seorang klien...",
-      "drawCardsTitle": "2. Ambil Kartu",
-      "drawCardsButton": "Ambil 3 Kartu",
-      "spreadTitle": "Tebaran Kartu Anda",
-      "spreadDescription": "Kartu yang mewakili masa lalu, sekarang, dan masa depan.",
-      "getInterpretation": "Dapatkan Interpretasi AI",
-      "interpretationTitle": "Interpretasi untuk {{name}}",
-      "loadingMessage": "Para arwah sedang berbisik... menghasilkan interpretasi Anda.",
-      "shareButton": "Bagikan Bacaan",
-      "toast": {
-        "missingInfoTitle": "Informasi Kurang",
-        "missingInfoDesc": "Harap pilih klien dan ambil kartu terlebih dahulu.",
-        "failedTitle": "Interpretasi Gagal",
-        "failedDesc": "Para arwah sedang diam saat ini. Silakan coba lagi nanti."
-      }
-    },
+  "mysticAgenda": "Mistik Agenda",
+  "logout": "Keluar",
+  "dashboard": {
+    "title": "Dasbor",
+    "welcome": "Selamat datang kembali, Madame Elena!",
+    "description": "Berikut adalah ringkasan bisnis Anda bulan ini.",
+    "scheduleAppointment": "Janji Temu Baru",
+    "grossRevenue": "Pendapatan Kotor",
+    "platformFees": "Biaya Platform",
+    "netEarnings": "Pendapatan Bersih",
+    "nextPayout": "Pembayaran Berikutnya",
+    "payoutOn": "Pembayaran pada",
+    "upcomingAppointments": "Janji Temu Mendatang",
+    "customer": "Pelanggan",
+    "date": "Tanggal",
+    "time": "Waktu"
+  },
+  "appointments": {
+    "title": "Janji Temu",
+    "description": "Kelola janji temu Anda yang akan datang dan yang sudah lalu.",
+    "table_title": "Daftar Janji Temu",
+    "table_customer": "Pelanggan",
+    "table_date": "Tanggal",
+    "table_price": "Harga",
+    "table_status": "Status",
+    "table_actions": "Aksi",
+    "table_time": "Waktu",
+    "actions_reschedule": "Jadwalkan Ulang",
+    "actions_cancel": "Batalkan",
+    "calendar_title": "Kalender",
+    "schedule_button": "Janji Temu Baru",
+    "schedule": {
+      "title": "Jadwalkan Janji Temu Baru",
+      "step1_desc": "Pilih klien untuk janji temu ini.",
+      "step2_desc": "Pilih satu atau lebih layanan untuk sesi ini.",
+      "step3_desc": "Pilih tanggal dan waktu untuk janji temu.",
+      "summary_desc": "Tinjau detail sebelum mengonfirmasi janji temu.",
+      "client": "Klien",
+      "services": "Layanan",
+      "date_time": "Tanggal & Waktu",
+      "total_price": "Total Harga",
+      "total_duration": "Total Durasi",
+      "minutes": "menit",
+      "summary": "Ringkasan Janji Temu",
+      "button_back": "Kembali",
+      "button_next": "Selanjutnya",
+      "button_schedule": "Jadwalkan Janji Temu",
+      "success_toast_title": "Janji Temu Dibuat!",
+      "success_toast_desc": "Janji temu untuk {{name}} pada {{date}} telah berhasil dibuat."
+    }
+  },
+  "customers": {
+    "title": "Pelanggan",
+    "description": "Lihat dan kelola daftar klien Anda.",
+    "roster_title": "Daftar Klien",
+    "table_name": "Nama",
+    "table_email": "Email",
+    "table_join_date": "Tanggal Bergabung",
+    "table_bookings": "Pesanan",
+    "table_actions": "Aksi",
+    "actions_edit": "Ubah",
+    "actions_view_bookings": "Lihat Pesanan",
+    "actions_delete": "Hapus",
+    "add_button": "Tambah Pelanggan",
+    "add": {
+      "title": "Tambah Pelanggan Baru",
+      "description": "Masukkan detail untuk klien baru Anda.",
+      "error_invalid_email": "Silakan masukkan alamat email yang valid.",
+      "name_label": "Nama Lengkap",
+      "name_placeholder": "cth., Aria Montgomery",
+      "email_label": "Alamat Email",
+      "email_placeholder": "cth., aria.m@example.com",
+      "cancel_button": "Batal",
+      "save_button": "Simpan Pelanggan",
+      "success_toast_title": "Pelanggan Ditambahkan",
+      "success_toast_desc": "Pelanggan baru telah berhasil ditambahkan."
+    }
+  },
+  "reading": {
+    "title": "Pembacaan AI",
+    "description": "Lakukan pembacaan tarot baru untuk klien.",
+    "selectClientTitle": "Pilih Klien",
+    "selectClientPlaceholder": "Pilih klien untuk pembacaan",
+    "drawCardsTitle": "Tarik Kartu",
+    "drawCardsButton": "Tarik 3 Kartu",
+    "spreadTitle": "Tebaran 3 Kartu Anda",
+    "spreadDescription": "Masa Lalu - Sekarang - Masa Depan",
+    "getInterpretation": "Dapatkan Interpretasi AI",
+    "interpretationTitle": "Interpretasi untuk {{name}}",
+    "loadingMessage": "Para arwah sedang berbisik... menghasilkan bacaan Anda.",
+    "shareButton": "Bagikan Bacaan",
+    "toast": {
+      "missingInfoTitle": "Informasi Kurang",
+      "missingInfoDesc": "Silakan pilih klien dan tarik kartu terlebih dahulu.",
+      "failedTitle": "Interpretasi Gagal",
+      "failedDesc": "Koneksi ke alam gaib terputus. Silakan coba lagi."
+    }
+  },
+  "aiReading": {
+    "title": "Pembacaan AI"
+  },
+  "services": {
+    "title": "Layanan",
+    "pageDescription": "Gambaran umum tentang bacaan yang Anda tawarkan."
+  },
+  "pricing": {
+    "title": "Harga",
+    "description": "Panduan harga umum untuk layanan tarot di Indonesia.",
+    "table_title": "Daftar Harga Layanan",
+    "table_description": "Harga adalah perkiraan dan dapat bervariasi. Semua harga dalam Rupiah (Rp).",
+    "table_service": "Layanan",
+    "table_duration": "Durasi",
+    "table_price": "Kisaran Harga",
+    "factors_title": "Faktor yang Mempengaruhi Harga",
     "services": {
-      "title": "Layanan",
-      "pageDescription": "Daftar semua layanan pembacaan tarot yang ditawarkan.",
-      "services": {
-        "one_question": "Tarot 1 pertanyaan",
-        "short_session": "Sesi pendek (3 kartu)",
-        "general_reading": "General Reading (1 spread lengkap)",
-        "deep_reading": "Deep Reading (2-3 spread)",
-        "chat_reading": "Reading via chat (WhatsApp/IG)",
-        "video_call": "Live video call / Zoom",
-        "event": "Event / Korporat (per jam)",
-        "depends": "Tergantung",
+        "one_question": "Bacaan 1 Pertanyaan",
+        "short_session": "Sesi Singkat (3 kartu)",
+        "general_reading": "Bacaan Umum (1 tebaran penuh)",
+        "deep_reading": "Bacaan Mendalam (2-3 tebaran)",
+        "chat_reading": "Bacaan via Chat (WA/IG)",
+        "video_call": "Panggilan Video Langsung / Zoom",
+        "event": "Acara / Korporat (per jam)",
+        "depends": "Bervariasi",
         "per_hour": "per jam"
-      }
     },
-    "pricing": {
-      "title": "Daftar Harga",
-      "description": "Referensi harga jasa tarot di Indonesia.",
-      "table_title": "Daftar Harga Jasa Tarot",
-      "table_description": "Kisaran harga umum berdasarkan tarif pasar per Juli 2025.",
-      "table_service": "Jenis Layanan",
-      "table_duration": "Durasi",
-      "table_price": "Kisaran Harga",
-      "factors_title": "Faktor yang Mempengaruhi Harga",
-      "factors": {
-        "experience": "Pengalaman: Semakin terkenal atau berpengalaman, tarif bisa lebih tinggi.",
-        "media": "Media konsultasi: Reading offline (tatap muka) biasanya lebih mahal.",
-        "complexity": "Jumlah pertanyaan / spread: Semakin kompleks, semakin tinggi harganya."
-      }
-    },
-    "profile": {
-      "title": "Profil Saya",
-      "description": "Kelola profil publik pembaca tarot Anda.",
-      "edit": "Ubah Profil",
-      "contact": "Informasi Kontak",
-      "experience": "tahun pengalaman",
-      "aboutMe": "Tentang Saya",
-      "specialties": "Spesialisasi"
-    },
-    "settings": {
-      "title": "Pengaturan",
-      "description": "Konfigurasikan preferensi aplikasi Anda.",
-      "language": "Bahasa",
-      "english": "Inggris",
-      "indonesian": "Indonesia",
-      "currency": "Mata Uang",
-      "tabs": {
+    "factors": {
+        "experience": "Pengalaman: Pembaca yang lebih terkenal atau berpengalaman mungkin memiliki tarif lebih tinggi.",
+        "media": "Media Konsultasi: Bacaan tatap muka biasanya lebih mahal.",
+        "complexity": "Jumlah Pertanyaan/Tebaran: Semakin kompleks, semakin tinggi harganya."
+    }
+  },
+  "profile": {
+    "title": "Profil Saya",
+    "description": "Lihat dan kelola profil publik Anda.",
+    "edit": "Ubah Profil",
+    "contact": "Informasi Kontak",
+    "experience": "tahun pengalaman",
+    "aboutMe": "Tentang Saya",
+    "specialties": "Spesialisasi"
+  },
+  "settings": {
+    "title": "Pengaturan",
+    "description": "Konfigurasi pengaturan aplikasi dan layanan Anda.",
+    "language": "Bahasa",
+    "english": "Inggris",
+    "indonesian": "Indonesia",
+    "currency": "Mata Uang",
+    "tabs": {
         "specializations": "Spesialisasi",
-        "durations": "Durasi",
-        "payment": "Pembayaran"
-      },
-      "specializations": {
+        "durations": "Durasi & Harga",
+        "payment": "Metode Pembayaran"
+    },
+    "specializations": {
         "title": "Spesialisasi Layanan",
-        "description": "Kelola jenis pembacaan yang Anda tawarkan.",
-        "addNew": "Tambah Baru",
+        "description": "Kelola jenis bacaan yang Anda tawarkan.",
+        "addNew": "Tambah Layanan Baru",
         "table": {
             "service": "Layanan",
             "description": "Deskripsi",
             "actions": "Aksi"
         }
-      },
-      "durations": {
-          "title": "Durasi Sesi",
-          "description": "Kelola durasi sesi yang tersedia dan harganya."
-      },
-      "payment": {
-          "title": "Metode Pembayaran",
-          "description": "Aktifkan atau nonaktifkan metode pembayaran untuk klien Anda."
-      }
+    },
+    "durations": {
+        "title": "Durasi & Harga",
+        "description": "Atur durasi sesi yang tersedia dan harganya."
+    },
+    "payment": {
+        "title": "Gerbang Pembayaran",
+        "description": "Hubungkan dan kelola opsi pembayaran Anda."
     }
+  }
 }
