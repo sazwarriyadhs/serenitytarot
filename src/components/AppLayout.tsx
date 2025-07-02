@@ -101,7 +101,10 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
         <header className="flex h-14 items-center justify-between gap-4 border-b bg-background px-4 md:px-6 sticky top-0 z-30">
             <div className='flex items-center gap-4'>
                 <SidebarTrigger className="md:hidden" />
-                <h1 className="hidden text-lg font-semibold md:block md:text-xl font-headline">{t('mysticAgenda')}</h1>
+                <Link href="/dashboard" className="hidden items-center gap-2 md:flex">
+                    <Logo className="h-6 w-6" />
+                    <span className="text-lg font-semibold font-headline">{t('mysticAgenda')}</span>
+                </Link>
             </div>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
