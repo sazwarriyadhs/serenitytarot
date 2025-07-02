@@ -50,7 +50,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
     { href: '/settings', label: t('settings.title'), icon: Settings },
   ];
 
-  if (pathname.startsWith('/share/')) {
+  if (pathname.startsWith('/share/') || pathname === '/login') {
     return <>{children}</>;
   }
 
