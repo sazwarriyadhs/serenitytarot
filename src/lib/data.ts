@@ -71,7 +71,7 @@ export const appointments: Appointment[] = [
 ];
 
 const formatCardNameForImage = (name: string) => {
-    return name.toLowerCase().replace(/ /g, '-').replace(/&/g, 'and');
+    return name.toLowerCase().replace(/ /g, '_').replace(/&/g, 'and');
 }
 
 const cardData = [
@@ -117,3 +117,5 @@ export const tarotMaster: TarotMaster = {
   specialties: ['Love & Relationship', 'Career & Business', 'Spiritual Healing'],
   experienceYears: 15,
 };
+
+    
