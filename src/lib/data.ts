@@ -54,27 +54,37 @@ export const appointments: Appointment[] = [
   { id: 'app6', customerId: '2', customerName: 'Spencer Hastings', customerAvatarUrl: 'https://placehold.co/100x100.png', date: '2024-07-15', time: '01:00 PM', status: 'Cancelled' },
 ];
 
-export const tarotDeck: TarotCard[] = [
-    { name: 'The Fool', imageUrl: 'https://placehold.co/200x350.png', description: 'New beginnings, innocence, spontaneity' },
-    { name: 'The Magician', imageUrl: 'https://placehold.co/200x350.png', description: 'Manifestation, resourcefulness, power' },
-    { name: 'The High Priestess', imageUrl: 'https://placehold.co/200x350.png', description: 'Intuition, subconscious, mystery' },
-    { name: 'The Empress', imageUrl: 'https://placehold.co/200x350.png', description: 'Femininity, beauty, nature, nurturing' },
-    { name: 'The Emperor', imageUrl: 'https://placehold.co/200x350.png', description: 'Authority, structure, control, fatherhood' },
-    { name: 'The Hierophant', imageUrl: 'https://placehold.co/200x350.png', description: 'Tradition, conformity, morality, ethics' },
-    { name: 'The Lovers', imageUrl: 'https://placehold.co/200x350.png', description: 'Love, harmony, relationships, choices' },
-    { name: 'The Chariot', imageUrl: 'https://placehold.co/200x350.png', description: 'Control, willpower, success, action' },
-    { name: 'Strength', imageUrl: 'https://placehold.co/200x350.png', description: 'Courage, persuasion, influence, compassion' },
-    { name: 'The Hermit', imageUrl: 'https://placehold.co/200x350.png', description: 'Soul-searching, introspection, solitude' },
-    { name: 'Wheel of Fortune', imageUrl: 'https://placehold.co/200x350.png', description: 'Good luck, karma, life cycles, destiny' },
-    { name: 'Justice', imageUrl: 'https://placehold.co/200x350.png', description: 'Fairness, truth, cause and effect, law' },
-    { name: 'The Hanged Man', imageUrl: 'https://placehold.co/200x350.png', description: 'Suspension, restriction, letting go' },
-    { name: 'Death', imageUrl: 'https://placehold.co/200x350.png', description: 'Endings, beginnings, change, transformation' },
-    { name: 'Temperance', imageUrl: 'https://placehold.co/200x350.png', description: 'Balance, moderation, patience, purpose' },
-    { name: 'The Devil', imageUrl: 'https://placehold.co/200x350.png', description: 'Bondage, addiction, sexuality, materialism' },
-    { name: 'The Tower', imageUrl: 'https://placehold.co/200x350.png', description: 'Sudden change, upheaval, chaos, revelation' },
-    { name: 'The Star', imageUrl: 'https://placehold.co/200x350.png', description: 'Hope, faith, purpose, renewal' },
-    { name: 'The Moon', imageUrl: 'https://placehold.co/200x350.png', description: 'Illusion, fear, anxiety, subconscious' },
-    { name: 'The Sun', imageUrl: 'https://placehold.co/200x350.png', description: 'Positivity, fun, warmth, success' },
-    { name: 'Judgement', imageUrl: 'https://placehold.co/200x350.png', description: 'Rebirth, inner calling, absolution' },
-    { name: 'The World', imageUrl: 'https://placehold.co/200x350.png', description: 'Completion, integration, accomplishment' },
+const formatCardNameForImage = (name: string) => {
+    return name.toLowerCase().replace(/ /g, '-').replace(/&/g, 'and');
+}
+
+const cardData = [
+    { name: 'The Fool', name_id: 'Si Pandir', description: 'Permulaan baru, kepolosan, spontanitas' },
+    { name: 'The Magician', name_id: 'Sang Pesulap', description: 'Manifestasi, banyak akal, kekuatan' },
+    { name: 'The High Priestess', name_id: 'Sang Pendeta Wanita Agung', description: 'Intuisi, alam bawah sadar, misteri' },
+    { name: 'The Empress', name_id: 'Sang Maharani', description: 'Kewanitaan, keindahan, alam, pengasuhan' },
+    { name: 'The Emperor', name_id: 'Sang Kaisar', description: 'Otoritas, struktur, kontrol, kebapakan' },
+    { name: 'The Hierophant', name_id: 'Sang Imam Agung', description: 'Tradisi, konformitas, moralitas, etika' },
+    { name: 'The Lovers', name_id: 'Sang Pecinta', description: 'Cinta, harmoni, hubungan, pilihan' },
+    { name: 'The Chariot', name_id: 'Kereta Perang', description: 'Kontrol, kemauan keras, kesuksesan, tindakan' },
+    { name: 'Strength', name_id: 'Kekuatan', description: 'Keberanian, persuasi, pengaruh, kasih sayang' },
+    { name: 'The Hermit', name_id: 'Sang Pertapa', description: 'Pencarian jiwa, introspeksi, kesendirian' },
+    { name: 'Wheel of Fortune', name_id: 'Roda Keberuntungan', description: 'Keberuntungan, karma, siklus hidup, takdir' },
+    { name: 'Justice', name_id: 'Keadilan', description: 'Kewajaran, kebenaran, sebab dan akibat, hukum' },
+    { name: 'The Hanged Man', name_id: 'Manusia Tergantung', description: 'Penangguhan, pembatasan, melepaskan' },
+    { name: 'Death', name_id: 'Kematian', description: 'Akhir, awal, perubahan, transformasi' },
+    { name: 'Temperance', name_id: 'Keseimbangan', description: 'Keseimbangan, moderasi, kesabaran, tujuan' },
+    { name: 'The Devil', name_id: 'Sang Iblis', description: 'Perbudakan, kecanduan, seksualitas, materialisme' },
+    { name: 'The Tower', name_id: 'Menara', description: 'Perubahan mendadak, pergolakan, kekacauan, wahyu' },
+    { name: 'The Star', name_id: 'Bintang', description: 'Harapan, keyakinan, tujuan, pembaruan' },
+    { name: 'The Moon', name_id: 'Bulan', description: 'Ilusi, ketakutan, kecemasan, alam bawah sadar' },
+    { name: 'The Sun', name_id: 'Matahari', description: 'Positivitas, kesenangan, kehangatan, kesuksesan' },
+    { name: 'Judgement', name_id: 'Penghakiman', description: 'Kelahiran kembali, panggilan batin, pembebasan' },
+    { name: 'The World', name_id: 'Dunia', description: 'Penyelesaian, integrasi, pencapaian' },
 ];
+
+export const tarotDeck: TarotCard[] = cardData.map(card => ({
+    name: card.name_id,
+    imageUrl: `/images/card/${formatCardNameForImage(card.name)}.png`,
+    description: card.description,
+}));
