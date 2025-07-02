@@ -124,10 +124,19 @@ export default function ReadingPage() {
                     <CardDescription>{t('reading.spreadDescription')}</CardDescription>
                 </CardHeader>
                 <CardContent className="flex flex-col items-center justify-center gap-4">
-                    <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8">
-                        <TarotCard card={drawnCards[0]} isFlipped={areCardsFlipped} className="w-[120px] h-[210px] sm:w-[160px] sm:h-[280px] md:w-[200px] md:h-[350px]" />
-                        <TarotCard card={drawnCards[1]} isFlipped={areCardsFlipped} className="w-[120px] h-[210px] sm:w-[160px] sm:h-[280px] md:w-[200px] md:h-[350px]" />
-                        <TarotCard card={drawnCards[2]} isFlipped={areCardsFlipped} className="w-[120px] h-[210px] sm:w-[160px] sm:h-[280px] md:w-[200px] md:h-[350px]" />
+                    <div className="flex flex-wrap items-start justify-center gap-4 md:gap-8">
+                        <div className="flex flex-col items-center gap-2 text-center">
+                            <TarotCard card={drawnCards[0]} isFlipped={areCardsFlipped} className="w-[120px] h-[210px] sm:w-[160px] sm:h-[280px]" />
+                            {areCardsFlipped && <span className="font-headline text-sm text-muted-foreground mt-2">{t('reading.past')}</span>}
+                        </div>
+                        <div className="flex flex-col items-center gap-2 text-center">
+                            <TarotCard card={drawnCards[1]} isFlipped={areCardsFlipped} className="w-[120px] h-[210px] sm:w-[160px] sm:h-[280px]" />
+                            {areCardsFlipped && <span className="font-headline text-sm text-muted-foreground mt-2">{t('reading.present')}</span>}
+                        </div>
+                        <div className="flex flex-col items-center gap-2 text-center">
+                            <TarotCard card={drawnCards[2]} isFlipped={areCardsFlipped} className="w-[120px] h-[210px] sm:w-[160px] sm:h-[280px]" />
+                            {areCardsFlipped && <span className="font-headline text-sm text-muted-foreground mt-2">{t('reading.future')}</span>}
+                        </div>
                     </div>
                     {areCardsFlipped && (
                         <Button onClick={handleGetInterpretation} disabled={isLoading || !selectedCustomerId} size="lg" className="mt-4">
@@ -142,13 +151,13 @@ export default function ReadingPage() {
       { (isLoading || interpretation) &&
         <Card>
             <CardHeader>
-                <CardTitle className="font-headline">{t('reading.interpretationTitle', { name: selectedCustomer?.name })}</CardTitle>
+                <CardTitle className="font-headline">{t('interpretationTitle', { name: selectedCustomer?.name })}</CardTitle>
             </CardHeader>
             <CardContent>
                 {isLoading && (
                     <div className="flex items-center justify-center p-8">
                         <Loader2 className="h-8 w-8 animate-spin text-primary" />
-                        <p className="ml-4 text-muted-foreground">{t('reading.loadingMessage')}</p>
+                        <p className="ml-4 text-muted-foreground">{t('loadingMessage')}</p>
                     </div>
                 )}
                 {interpretation && (

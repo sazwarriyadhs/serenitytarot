@@ -16,7 +16,7 @@ const getReadingData = (readingId: string): {
     if (!readingId) return null;
 
     const customer = customers[0]; // Mock: always Aria
-    const drawnCards = [tarotDeck[0], tarotDeck[1], tarotDeck[2]]; // Mock: first 3 cards
+    const drawnCards = [tarotDeck[4], tarotDeck[12], tarotDeck[18]]; // Mock: The Emperor, The Hanged Man, The Moon
     const interpretation = `This is a pivotal moment of new beginnings for you, Aria. The Fool signifies a leap of faith into the unknown, brimming with potential and spontaneity. Trust your instincts.
 
 The Magician appears alongside, empowering you with the tools and resourcefulness to manifest your desires. You have the power to make your dreams a reality.
@@ -36,6 +36,7 @@ export default function ShareReadingPage({ params }: { params: { readingId: stri
   }
 
   const { customer, drawnCards, interpretation, date } = readingData;
+  const labels = ['Past', 'Present', 'Future'];
 
   return (
     <div className="min-h-screen bg-card text-foreground flex flex-col items-center p-4 sm:p-6 md:p-8">
@@ -53,10 +54,13 @@ export default function ShareReadingPage({ params }: { params: { readingId: stri
             <CardTitle className="font-headline text-3xl md:text-4xl">A Reading for {customer.name}</CardTitle>
           </CardHeader>
           <CardContent className="flex flex-col items-center gap-8 px-4 md:px-8 pb-8">
-            <p className="text-muted-foreground text-center">Your cards: Past, Present, and Future</p>
-            <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 md:gap-8">
+            <p className="text-muted-foreground text-center">Your cards for this reading:</p>
+            <div className="flex flex-col sm:flex-row flex-wrap items-start justify-center gap-4 md:gap-8">
               {drawnCards.map((card, index) => (
-                <TarotCard key={index} card={card} isFlipped={true} />
+                <div key={index} className="flex flex-col items-center gap-2 text-center">
+                  <TarotCard card={card} isFlipped={true} />
+                  <span className="font-headline text-sm text-muted-foreground mt-2">{labels[index]}</span>
+                </div>
               ))}
             </div>
             
